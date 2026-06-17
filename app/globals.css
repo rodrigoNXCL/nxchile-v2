@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1B5E20;
+    --color-primary-hover: #2E7D32;
+    --color-primary-light: #E8F5E9;
+    --color-gray-50: #F9FAFB;
+    --color-gray-100: #F3F4F6;
+    --color-gray-200: #E5E7EB;
+    --color-gray-300: #D1D5DB;
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1F2937;
+    --color-gray-900: #111827;
+  }
+
+  body {
+    @apply bg-white text-gray-700 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight text-gray-900;
+  }
+  h3 {
+    @apply text-2xl font-semibold text-gray-900;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Contenedor principal */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Botón primario (verde NXChile) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-[#1B5E20] text-white px-6 py-3 rounded-full font-medium transition-all duration-200 shadow-sm hover:bg-[#2E7D32] hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Botón secundario (borde gris) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border border-gray-300 text-gray-700 px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-gray-50 hover:border-gray-400;
+  }
+
+  /* Tarjeta estándar */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 p-6 transition-all duration-200 hover:shadow-md hover:border-[#1B5E20]/20;
+  }
+
+  /* Badge / etiqueta */
+  .badge {
+    @apply inline-flex items-center gap-2 bg-[#E8F5E9] text-[#1B5E20] px-4 py-1.5 rounded-full text-sm font-medium border border-green-200/50;
+  }
+
+  /* Enlace con flecha */
+  .link-arrow {
+    @apply inline-flex items-center text-[#1B5E20] font-medium hover:text-[#2E7D32] transition-colors;
+  }
+  .link-arrow svg {
+    @apply w-4 h-4 ml-1 transition-transform duration-200;
+  }
+  .link-arrow:hover svg {
+    @apply translate-x-1;
+  }
+}
+
+@layer utilities {
+  /* Animación para la cinta de logos (marquee) */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  /* Para pausar la animación al hacer hover */
+  .marquee-container:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}

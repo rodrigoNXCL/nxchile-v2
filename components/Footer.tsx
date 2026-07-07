@@ -8,8 +8,7 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">© 2025 NXChile. Todos los derechos reservados.</p>
           <div className="flex gap-6 text-sm text-gray-400">
             <Link href="/" className="hover:text-[#1B5E20]">Inicio</Link>
-            <Link href="/problemas" className="hover:text-[#1B5E20]">Problemas</Link>
-            <Link href="/casos" className="hover:text-[#1B5E20]">Casos</Link>
+            <Link href="/experiencia" className="hover:text-[#1B5E20]">Experiencia</Link>
             <Link href="/clientes" className="hover:text-[#1B5E20]">Clientes</Link>
             <Link href="/contacto" className="hover:text-[#1B5E20]">Contacto</Link>
           </div>

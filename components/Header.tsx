@@ -20,8 +20,7 @@ export default function Header() {
         </Link>
         <nav className="hidden md:flex gap-8 text-gray-600">
           <Link href="/" className="hover:text-[#1B5E20]">Inicio</Link>
-          <Link href="/problemas" className="hover:text-[#1B5E20]">Problemas que resolvemos</Link>
-          <Link href="/casos" className="hover:text-[#1B5E20]">Casos reales</Link>
+          <Link href="/experiencia" className="hover:text-[#1B5E20]">Experiencia</Link>
           <Link href="/clientes" className="hover:text-[#1B5E20]">Clientes</Link>
           <Link href="/contacto" className="hover:text-[#1B5E20]">Contacto</Link>
         </nav>

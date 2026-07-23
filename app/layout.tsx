@@ -20,6 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        {/* Font Awesome para iconos */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+      </head>
       <body className={inter.className}>
         <Header />
         <main>{children}</main>

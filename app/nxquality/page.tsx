@@ -18,7 +18,7 @@ export default function NXQualityPage() {
 
 function PresentationContent() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 8;
+  const totalSlides = 10; // 10 diapositivas
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,17 +82,17 @@ function PresentationContent() {
 
   return (
     <>
-      {/* ===== SLIDE 1: PORTADA ===== */}
+      {/* ===== SLIDE 1: LA CALIDAD DECIDE EL DESTINO ===== */}
       <section className="slide" id="slide-0">
         <div className="container slide-content">
           <div className="badge">
             <i className="fas fa-leaf"></i> NX Quality · Inteligencia Operacional
           </div>
           <h1>
-            Cada fruta<br />tiene una <span className="gradient">historia</span>.
+            La calidad<br />decide el <span className="gradient">destino</span> de la fruta
           </h1>
-          <p style={{ fontSize: '1.4rem', color: '#aab7c9', maxWidth: '680px', margin: '20px 0 32px' }}>
-            Nuestra misión es que <span className="highlight">nunca vuelva a perderse</span>.
+          <p style={{ fontSize: '1.4rem', color: '#aab7c9', maxWidth: '720px', margin: '20px 0 32px' }}>
+            Cada temporada se toman miles de decisiones que determinan el destino comercial de millones de kilos de fruta.
           </p>
           <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <a href="#slide-1" className="btn-primary" onClick={(e) => { e.preventDefault(); goToSlide(1); }}>
@@ -103,106 +103,177 @@ function PresentationContent() {
             </span>
           </div>
           <div style={{ marginTop: '60px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.04)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', color: '#6b7a8f', fontSize: '0.8rem' }}>
-            <span><i className="fas fa-lock"></i> Documento Estratégico · Confidencial</span>
-            <span>Versión 0.1</span>
+            <span><i className="fas fa-lock"></i> Documento Estratégico · Versión Fundacional</span>
+            <span>NX Quality</span>
           </div>
         </div>
       </section>
 
-      {/* ===== SLIDE 2: EL ORIGEN ===== */}
+      {/* ===== SLIDE 2: EL VERDADERO PROBLEMA ===== */}
       <section className="slide" id="slide-1">
         <div className="container slide-content">
-          <span className="badge"><i className="fas fa-exclamation-triangle"></i> El problema</span>
-          <h2>El conocimiento se <span className="text-gradient">pierde</span></h2>
+          <span className="badge"><i className="fas fa-exclamation-triangle"></i> El verdadero problema</span>
+          <h2>El problema <span className="text-gradient">no es la calidad</span></h2>
+          <p style={{ fontSize: '1.2rem', color: '#c8d2df', marginBottom: '20px' }}>
+            El problema es la <span className="highlight">pérdida del conocimiento</span>.
+          </p>
           <div className="grid-2">
             <div>
-              <p style={{ fontSize: '1.1rem', color: '#c8d2df', marginBottom: '16px' }}>
-                La industria alcanzó estándares mundiales, pero las decisiones más importantes
-                aún dependen de información dispersa y la experiencia individual.
+              <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+                Cada revisión genera datos. Cada fotografía genera evidencia. Cada inspector aporta experiencia.
+                Pero esa información termina distribuida entre múltiples medios.
               </p>
               <ul className="benefit-list">
-                <li><i className="fas fa-times-circle"></i> Planillas Excel</li>
-                <li><i className="fas fa-times-circle"></i> Correos y WhatsApp</li>
-                <li><i className="fas fa-times-circle"></i> Informes PDF</li>
-                <li><i className="fas fa-times-circle"></i> Fotografías aisladas</li>
-                <li><i className="fas fa-times-circle"></i> La memoria del inspector</li>
-                <li><i className="fas fa-times-circle"></i> Llamadas telefónicas</li>
+                <li><i className="fas fa-times-circle"></i> Excel</li>
+                <li><i className="fas fa-times-circle"></i> WhatsApp</li>
+                <li><i className="fas fa-times-circle"></i> PDF</li>
+                <li><i className="fas fa-times-circle"></i> Correos</li>
+                <li><i className="fas fa-times-circle"></i> Fotografías</li>
+                <li><i className="fas fa-times-circle"></i> Memoria de las personas</li>
               </ul>
               <p style={{ color: '#aab7c9', fontStyle: 'italic', marginTop: '16px', borderLeft: '3px solid #2ecc71', paddingLeft: '16px' }}>
-                "Cuando aparece un problema semanas después,<br />ya es imposible reconstruir la historia técnica."
+                "Cuando aparece un reclamo, una auditoría o un rechazo,<br />reconstruir la historia es lento, difícil y muchas veces imposible."
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '24px', padding: '28px', border: '1px dashed rgba(46,204,113,0.15)' }}>
-              <i className="fas fa-apple-alt" style={{ fontSize: '4rem', color: '#2ecc71', opacity: '0.5', marginBottom: '8px' }}></i>
-              <h3 style={{ color: '#fff', fontSize: '1.6rem' }}>Misma fruta,</h3>
-              <p style={{ fontSize: '1.2rem', color: '#aab7c9' }}>múltiples inspecciones, <span className="highlight">cero historia</span>.</p>
-              <div style={{ marginTop: '20px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={{ background: '#141a21', padding: '4px 14px', borderRadius: '30px', fontSize: '0.75rem', border: '1px solid #2ecc71' }}>Precosecha</span>
-                <span style={{ background: '#141a21', padding: '4px 14px', borderRadius: '30px', fontSize: '0.75rem', border: '1px solid #2ecc71' }}>Recepción</span>
-                <span style={{ background: '#141a21', padding: '4px 14px', borderRadius: '30px', fontSize: '0.75rem', border: '1px solid #2ecc71' }}>Packing</span>
-                <span style={{ background: '#141a21', padding: '4px 14px', borderRadius: '30px', fontSize: '0.75rem', border: '1px solid #2ecc71' }}>Despacho</span>
-              </div>
+              <i className="fas fa-database" style={{ fontSize: '4rem', color: '#2ecc71', opacity: '0.5', marginBottom: '8px' }}></i>
+              <h3 style={{ color: '#fff', fontSize: '1.6rem' }}>Información dispersa,</h3>
+              <p style={{ fontSize: '1.2rem', color: '#aab7c9' }}>conocimiento <span className="highlight">perdido</span>.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SLIDE 3: LA OPORTUNIDAD ===== */}
+      {/* ===== SLIDE 3: ¿POR QUÉ AHORA? ===== */}
       <section className="slide" id="slide-2">
         <div className="container slide-content">
-          <span className="badge"><i className="fas fa-lightbulb"></i> La oportunidad</span>
-          <h2>Transformar inspecciones en <span className="text-gradient">conocimiento</span></h2>
+          <span className="badge"><i className="fas fa-clock"></i> ¿Por qué ahora?</span>
+          <h2>La información dejó de ser un respaldo.<br />Hoy es un <span className="text-gradient">activo estratégico</span>.</h2>
+          <div className="grid-3">
+            <div className="card">
+              <i className="fas fa-globe-americas"></i>
+              <h3>Mercados más exigentes</h3>
+              <p>Cada vez más挑剔 y con estándares más altos de calidad y trazabilidad.</p>
+            </div>
+            <div className="card">
+              <i className="fas fa-search"></i>
+              <h3>Auditorías permanentes</h3>
+              <p>La fiscalización ya no es ocasional, es parte de la operación diaria.</p>
+            </div>
+            <div className="card">
+              <i className="fas fa-chart-line"></i>
+              <h3>Decisiones más rápidas</h3>
+              <p>Menores márgenes exigen respuestas ágiles basadas en datos confiables.</p>
+            </div>
+            <div className="card">
+              <i className="fas fa-trophy"></i>
+              <h3>Más competencia</h3>
+              <p>El mercado global exige diferenciación y excelencia operacional.</p>
+            </div>
+            <div className="card">
+              <i className="fas fa-link"></i>
+              <h3>Trazabilidad total</h3>
+              <p>Los clientes finales exigen conocer el origen y recorrido de cada fruta.</p>
+            </div>
+            <div className="card">
+              <i className="fas fa-coins"></i>
+              <h3>Menores márgenes</h3>
+              <p>Cada decisión errónea tiene un impacto económico inmediato y medible.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SLIDE 4: NUESTRA VISIÓN ===== */}
+      <section className="slide" id="slide-3">
+        <div className="container slide-content">
+          <span className="badge"><i className="fas fa-eye"></i> Nuestra visión</span>
+          <h2>El nuevo <span className="text-gradient">estándar</span> para la gestión de calidad</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginTop: '20px' }}>
+            <div style={{ flex: '1', minWidth: '280px' }}>
+              <p style={{ fontSize: '1.2rem', color: '#c8d2df' }}>
+                No queremos desarrollar otro software de inspecciones.
+              </p>
+              <p style={{ fontSize: '1.2rem', color: '#aab7c9', marginTop: '12px' }}>
+                Queremos construir el <span className="highlight">nuevo estándar</span> para la gestión de calidad de la fruta de exportación.
+              </p>
+              <div style={{ marginTop: '24px', background: 'rgba(46,204,113,0.05)', borderRadius: '16px', padding: '20px 24px', borderLeft: '4px solid #2ecc71' }}>
+                <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
+                  <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '10px' }}></i>
+                  Cada fruta debe conservar su <span className="highlight">memoria técnica</span> durante toda su vida operacional.
+                </p>
+              </div>
+            </div>
+            <div style={{ flex: '1', minWidth: '250px', background: '#0f151c', borderRadius: '24px', padding: '32px', border: '1px solid #1f2a33', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <i className="fas fa-flag-checkered" style={{ fontSize: '3.5rem', color: '#2ecc71', marginBottom: '16px' }}></i>
+              <p style={{ color: '#aab7c9', textAlign: 'center', fontSize: '0.95rem' }}>
+                Un estándar construido<br /><span className="highlight">desde la industria</span><br />para la industria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SLIDE 5: ¿QUÉ ES NX QUALITY? ===== */}
+      <section className="slide" id="slide-4">
+        <div className="container slide-content">
+          <span className="badge"><i className="fas fa-cube"></i> ¿Qué es NX Quality?</span>
+          <h2>Una <span className="text-gradient">Plataforma de Inteligencia Operacional</span></h2>
+          <p style={{ fontSize: '1.15rem', color: '#aab7c9', maxWidth: '700px', marginBottom: '28px' }}>
+            No administra formularios. Construye una <span className="highlight">Historia Técnica</span> que acompaña a la fruta desde el huerto hasta el destino final.
+          </p>
           <div className="grid-3">
             <div className="card">
               <i className="fas fa-history"></i>
               <h3>Historia Técnica</h3>
-              <p>Cada inspección, foto y medición enriquece un expediente único que acompaña a la fruta desde su origen.</p>
+              <p>Cada evento agrega conocimiento. Cada decisión queda respaldada.</p>
             </div>
             <div className="card">
               <i className="fas fa-mobile-alt"></i>
               <h3>Inspector del Futuro</h3>
-              <p>El móvil como herramienta principal. Protocolos guiados que estandarizan y reducen errores.</p>
+              <p>Protocolos guiados que estandarizan y reducen errores operacionales.</p>
             </div>
             <div className="card">
               <i className="fas fa-brain"></i>
-              <h3>Inteligencia Colectiva</h3>
-              <p>Aprende del comportamiento histórico de cada productor, variedad y temporada para detectar anomalías.</p>
+              <h3>Conocimiento Colectivo</h3>
+              <p>Aprende del comportamiento histórico de cada productor, variedad y temporada.</p>
             </div>
-          </div>
-          <div style={{ marginTop: '28px', background: 'rgba(46,204,113,0.05)', borderRadius: '20px', padding: '20px 28px', borderLeft: '6px solid #2ecc71' }}>
-            <p style={{ fontSize: '1.1rem', color: '#d0d9e5' }}>
-              <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '10px' }}></i>
-              No queremos desarrollar un software. Queremos construir el <strong>nuevo estándar de gestión de calidad</strong> para la fruta de exportación.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ===== SLIDE 4: IDENTIDAD DE LA FRUTA ===== */}
-      <section className="slide" id="slide-3">
+      {/* ===== SLIDE 6: UN NUEVO CONCEPTO DE TRAZABILIDAD ===== */}
+      <section className="slide" id="slide-5">
         <div className="container slide-content">
-          <span className="badge"><i className="fas fa-fingerprint"></i> El concepto clave</span>
-          <h2>La <span className="text-gradient">identidad</span> de la fruta</h2>
+          <span className="badge"><i className="fas fa-fingerprint"></i> Un nuevo concepto de trazabilidad</span>
+          <h2>Seguimos la <span className="text-gradient">identidad real</span> de la fruta</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
             <div style={{ flex: '1', minWidth: '250px' }}>
-              <p style={{ fontSize: '1.1rem', color: '#c8d2df' }}>Mientras los sistemas usan números de lote, nosotros partimos de la <span className="highlight">identidad técnica</span>:</p>
-              <ul className="benefit-list">
+              <p style={{ fontSize: '1.1rem', color: '#c8d2df' }}>
+                La mayoría de los sistemas sigue al lote.
+              </p>
+              <p style={{ fontSize: '1.1rem', color: '#aab7c9', marginTop: '8px' }}>
+                Nosotros seguimos la <span className="highlight">identidad real</span> de la fruta.
+              </p>
+              <ul className="benefit-list" style={{ marginTop: '16px' }}>
                 <li><i className="fas fa-check-circle"></i> Productor</li>
                 <li><i className="fas fa-check-circle"></i> Especie</li>
                 <li><i className="fas fa-check-circle"></i> Variedad</li>
-                <li><i className="fas fa-check-circle"></i> Fecha y bloque de cosecha</li>
+                <li><i className="fas fa-check-circle"></i> Fecha de cosecha</li>
+                <li><i className="fas fa-check-circle"></i> Hora o bloque horario</li>
               </ul>
               <p style={{ color: '#aab7c9', marginTop: '12px', fontSize: '1.05rem' }}>
                 <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
-                Lotes, pallets y mercados cambian.<br />
-                <span className="highlight">La identidad de la fruta, no.</span>
+                Los lotes cambian.<br />
+                <span className="highlight">La identidad permanece.</span>
               </p>
             </div>
             <div style={{ flex: '1', minWidth: '250px', background: '#0f151c', borderRadius: '24px', padding: '28px', border: '1px solid #1f2a33' }}>
               <i className="fas fa-tree" style={{ fontSize: '2.5rem', color: '#2ecc71' }}></i>
-              <h4 style={{ color: '#fff', margin: '10px 0 4px' }}>Historia Técnica en acción</h4>
+              <h4 style={{ color: '#fff', margin: '10px 0 4px' }}>Identidad Técnica</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.9rem', color: '#aab7c9' }}>
                 <span><span style={{ color: '#fff' }}>Productor:</span> Agrícola Los Andes</span>
+                <span><span style={{ color: '#fff' }}>Especie:</span> Palta</span>
                 <span><span style={{ color: '#fff' }}>Variedad:</span> Hass</span>
                 <span><span style={{ color: '#fff' }}>Cosecha:</span> 15-01-2026 · Bloque A</span>
                 <span style={{ borderTop: '1px solid #1f2a33', paddingTop: '10px', marginTop: '8px' }}>
@@ -215,133 +286,174 @@ function PresentationContent() {
         </div>
       </section>
 
-      {/* ===== SLIDE 5: RECORRIDO ===== */}
-      <section className="slide" id="slide-4">
-        <div className="container slide-content">
-          <span className="badge"><i className="fas fa-route"></i> El recorrido</span>
-          <h2>La historia <span className="text-gradient">crece</span> en cada etapa</h2>
-
-          <div className="journey">
-            <div className="journey-steps">
-              <div className="journey-step">
-                <i className="fas fa-seedling"></i>
-                <span>Productor</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-sun"></i>
-                <span>Cosecha</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-warehouse"></i>
-                <span>Recepción</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-snowflake"></i>
-                <span>Frigorífico</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-boxes"></i>
-                <span>Packing</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-box"></i>
-                <span>Prod. Term.</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-truck"></i>
-                <span>Pre Despacho</span>
-              </div>
-              <div className="journey-step">
-                <i className="fas fa-user-check"></i>
-                <span>Cliente</span>
-              </div>
-            </div>
-
-            <div className="journey-legend">
-              <i className="fas fa-arrow-right"></i>
-              La información <span className="highlight">nunca comienza nuevamente</span>
-              <i className="fas fa-arrow-left"></i>
-              <br />
-              <span style={{ fontSize: '0.9rem', color: '#6b7a8f' }}>Cada etapa agrega conocimiento · Cada paso construye evidencia</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SLIDE 6: EVENTOS TÉCNICOS ===== */}
-      <section className="slide" id="slide-5">
-        <div className="container slide-content">
-          <span className="badge"><i className="fas fa-cubes"></i> Nuevo paradigma</span>
-          <h2>No registramos inspecciones.<br />Registramos <span className="text-gradient">Eventos Técnicos</span></h2>
-          <div className="grid-3">
-            <div className="card"><i className="fas fa-clipboard-check"></i><h3>Inspección</h3><p>Un evento clave en la historia de la fruta.</p></div>
-            <div className="card"><i className="fas fa-camera"></i><h3>Evidencia visual</h3><p>Cada fotografía agrega respaldo objetivo.</p></div>
-            <div className="card"><i className="fas fa-chart-line"></i><h3>Medición</h3><p>Datos que enriquecen el contexto.</p></div>
-            <div className="card"><i className="fas fa-exchange-alt"></i><h3>Cambio de mercado</h3><p>Nuevo destino, misma identidad.</p></div>
-            <div className="card"><i className="fas fa-sync-alt"></i><h3>Reproceso</h3><p>Decisiones operacionales registradas.</p></div>
-            <div className="card"><i className="fas fa-bell"></i><h3>Alerta</h3><p>Notificaciones inteligentes sobre anomalías.</p></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SLIDE 7: BENEFICIOS ===== */}
+      {/* ===== SLIDE 7: ¿CUÁNTO CUESTA UNA MALA DECISIÓN? ===== */}
       <section className="slide" id="slide-6">
         <div className="container slide-content">
-          <span className="badge"><i className="fas fa-medal"></i> El verdadero diferencial</span>
-          <h2>Más que información: <span className="text-gradient">inteligencia operacional</span></h2>
+          <span className="badge"><i className="fas fa-calculator"></i> El costo de la desinformación</span>
+          <h2>¿Cuánto cuesta una <span className="text-gradient">mala decisión</span>?</h2>
+          <div className="grid-3">
+            <div className="card" style={{ borderColor: 'rgba(231, 76, 60, 0.2)' }}>
+              <i className="fas fa-box" style={{ color: '#e74c3c' }}></i>
+              <h3 style={{ color: '#e74c3c' }}>Contenedor rechazado</h3>
+              <p>Pérdida total del valor de la fruta más costos logísticos y comerciales.</p>
+            </div>
+            <div className="card" style={{ borderColor: 'rgba(241, 196, 15, 0.2)' }}>
+              <i className="fas fa-clock" style={{ color: '#f1c40f' }}></i>
+              <h3 style={{ color: '#f1c40f' }}>Cambio de mercado tardío</h3>
+              <p>Oportunidades perdidas por no contar con información a tiempo.</p>
+            </div>
+            <div className="card" style={{ borderColor: 'rgba(52, 152, 219, 0.2)' }}>
+              <i className="fas fa-file-alt" style={{ color: '#3498db' }}></i>
+              <h3 style={{ color: '#3498db' }}>Reclamo sin respaldo</h3>
+              <p>Imposibilidad de defender la posición técnica ante el cliente.</p>
+            </div>
+            <div className="card" style={{ borderColor: 'rgba(155, 89, 182, 0.2)' }}>
+              <i className="fas fa-search" style={{ color: '#9b59b6' }}></i>
+              <h3 style={{ color: '#9b59b6' }}>Horas buscando antecedentes</h3>
+              <p>Tiempo improductivo que podría dedicarse a análisis y mejora.</p>
+            </div>
+            <div className="card" style={{ borderColor: 'rgba(230, 126, 34, 0.2)' }}>
+              <i className="fas fa-users" style={{ color: '#e67e22' }}></i>
+              <h3 style={{ color: '#e67e22' }}>Productores cuestionando</h3>
+              <p>Falta de evidencia objetiva para respaldar las decisiones técnicas.</p>
+            </div>
+            <div className="card" style={{ borderColor: 'rgba(26, 188, 156, 0.2)' }}>
+              <i className="fas fa-user-tie" style={{ color: '#1abc9c' }}></i>
+              <h3 style={{ color: '#1abc9c' }}>Decisiones sin datos</h3>
+              <p>Dependencia exclusiva de la experiencia sin respaldo objetivo.</p>
+            </div>
+          </div>
+          <div style={{ marginTop: '24px', background: 'rgba(46,204,113,0.05)', borderRadius: '16px', padding: '16px 24px', textAlign: 'center', border: '1px solid rgba(46,204,113,0.1)' }}>
+            <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
+              <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
+              NX Quality <span className="highlight">no reemplaza el criterio técnico</span>.
+              Entrega la <span className="highlight">mejor información posible</span> para decidir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SLIDE 8: ¿QUÉ HACE DIFERENTE A NX QUALITY? ===== */}
+      <section className="slide" id="slide-7">
+        <div className="container slide-content">
+          <span className="badge"><i className="fas fa-star"></i> El verdadero diferencial</span>
+          <h2>¿Qué hace diferente a <span className="text-gradient">NX Quality</span>?</h2>
           <div className="grid-2">
             <div>
-              <ul className="benefit-list">
-                <li><i className="fas fa-check-circle"></i> Mayor trazabilidad</li>
-                <li><i className="fas fa-check-circle"></i> Respaldo técnico completo</li>
-                <li><i className="fas fa-check-circle"></i> Protocolos estandarizados</li>
-                <li><i className="fas fa-check-circle"></i> Auditoría en tiempo real</li>
-                <li><i className="fas fa-check-circle"></i> Menos información perdida</li>
-                <li><i className="fas fa-check-circle"></i> Conocimiento acumulado temporada a temporada</li>
+              <ul className="benefit-list" style={{ gridTemplateColumns: '1fr' }}>
+                <li><i className="fas fa-check-circle"></i> Historia Técnica única por cada fruta</li>
+                <li><i className="fas fa-check-circle"></i> Protocolos de inspección estandarizados</li>
+                <li><i className="fas fa-check-circle"></i> Evidencia fotográfica integrada</li>
+                <li><i className="fas fa-check-circle"></i> Separación entre información técnica y comercial</li>
+                <li><i className="fas fa-check-circle"></i> Trazabilidad completa desde el origen</li>
+                <li><i className="fas fa-check-circle"></i> Conocimiento acumulado temporada tras temporada</li>
               </ul>
             </div>
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.2)' }}>
-              <i className="fas fa-robot" style={{ fontSize: '2.5rem', color: '#2ecc71' }}></i>
-              <h4 style={{ color: '#fff', margin: '10px 0' }}>Aprendizaje colectivo</h4>
-              <p style={{ color: '#aab7c9' }}>El sistema detectará patrones como:</p>
+              <i className="fas fa-rocket" style={{ fontSize: '2.5rem', color: '#2ecc71' }}></i>
+              <h4 style={{ color: '#fff', margin: '10px 0' }}>El poder de la información</h4>
+              <p style={{ color: '#aab7c9' }}>
+                Cada temporada, la plataforma aprende y mejora.
+              </p>
               <ul style={{ listStyle: 'none', marginTop: '12px', color: '#c8d2df' }}>
-                <li style={{ marginBottom: '8px' }}><i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i> "Esta variedad normalmente presenta un comportamiento distinto."</li>
-                <li><i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i> "Este productor nunca había mostrado este nivel de daño."</li>
+                <li style={{ marginBottom: '8px' }}>
+                  <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
+                  Compara comportamientos históricos
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
+                  Detecta anomalías en tiempo real
+                </li>
+                <li>
+                  <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
+                  Construye conocimiento colectivo
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== SLIDE 8: CIERRE ===== */}
-      <section className="slide" id="slide-7">
-        <div className="container slide-content slide-cierre">
-          <span className="badge"><i className="fas fa-handshake"></i> Programa Fundador</span>
-          <h2 style={{ fontSize: '2.8rem' }}>No buscamos clientes.<br />Buscamos <span className="text-gradient">protagonistas</span>.</h2>
-
-          <div style={{ maxWidth: '720px', margin: '24px auto', background: '#0f151c', padding: '32px', borderRadius: '28px', border: '1px solid #1f2a33' }}>
-            <p style={{ color: '#c8d2df', fontSize: '1.05rem', marginBottom: '12px' }}>Empresas fundadoras tendrán:</p>
-            <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 24px', textAlign: 'left', color: '#aab7c9', fontSize: '0.95rem' }}>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Diseño funcional directo</li>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Acceso anticipado</li>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Prioridad en nuevas funcionalidades</li>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Condiciones comerciales preferentes</li>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Soporte directo durante el desarrollo</li>
-              <li><i className="fas fa-check-circle" style={{ color: '#2ecc71' }}></i> Influencia real sobre el roadmap</li>
-            </ul>
-            <p style={{ color: '#c8d2df', fontSize: '0.95rem', marginTop: '16px', borderTop: '1px solid #1f2a33', paddingTop: '16px' }}>
+      {/* ===== SLIDE 9: PROGRAM FOUNDING PARTNERS ===== */}
+      <section className="slide" id="slide-8">
+        <div className="container slide-content">
+          <span className="badge"><i className="fas fa-handshake"></i> Programa Founding Partners</span>
+          <h2>Construyamos el estándar <span className="text-gradient">juntos</span></h2>
+          <p style={{ fontSize: '1.15rem', color: '#aab7c9', maxWidth: '680px', marginBottom: '24px' }}>
+            Buscamos un grupo muy reducido de empresas que quieran construir este estándar junto a nosotros.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
+            <div style={{ flex: '1', minWidth: '280px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', padding: '28px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <h4 style={{ color: '#2ecc71', marginBottom: '12px' }}>
+                <i className="fas fa-arrow-right"></i> ¿Qué esperamos?
+              </h4>
+              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Acceso a procesos reales</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Validación funcional</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Retroalimentación permanente</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Casos reales</li>
+                <li><i className="fas fa-check" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Participación del equipo técnico</li>
+              </ul>
+            </div>
+            <div style={{ flex: '1', minWidth: '280px', background: 'rgba(46,204,113,0.05)', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.15)' }}>
+              <h4 style={{ color: '#2ecc71', marginBottom: '12px' }}>
+                <i className="fas fa-gift"></i> ¿Qué reciben?
+              </h4>
+              <ul style={{ listStyle: 'none', color: '#c8d2df' }}>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Participación directa en el diseño</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Prioridad permanente</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Implementación anticipada</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Condiciones comerciales preferenciales</li>
+                <li style={{ marginBottom: '8px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Soporte directo</li>
+                <li><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Influencia sobre el roadmap</li>
+              </ul>
+            </div>
+          </div>
+          <div style={{ marginTop: '24px', textAlign: 'center' }}>
+            <p style={{ color: '#aab7c9', fontSize: '1.05rem' }}>
               <i className="fas fa-quote-left" style={{ color: '#2ecc71', opacity: '0.5' }}></i>
-              Construyamos juntos la plataforma que la industria realmente necesita.
+              No buscamos clientes. Buscamos <span className="highlight">construir el producto junto a la industria</span>.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div style={{ margin: '28px 0 20px', display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#" className="btn-primary" style={{ fontSize: '1.1rem', padding: '16px 48px' }}>
-              <i className="fas fa-star"></i> Quiero ser protagonista
-            </a>
+      {/* ===== SLIDE 10: CIERRE ===== */}
+      <section className="slide" id="slide-9">
+        <div className="container slide-content slide-cierre">
+          <span className="badge"><i className="fas fa-rocket"></i> NX Quality</span>
+
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              <p style={{ fontSize: '1.8rem', color: '#e8edf2', fontWeight: '300' }}>
+                La calidad <span className="highlight">genera</span> información.
+              </p>
+              <p style={{ fontSize: '1.8rem', color: '#e8edf2', fontWeight: '300' }}>
+                La información <span className="highlight">genera</span> conocimiento.
+              </p>
+              <p style={{ fontSize: '1.8rem', color: '#e8edf2', fontWeight: '300' }}>
+                El conocimiento <span className="highlight">genera</span> mejores decisiones.
+              </p>
+            </div>
+
+            <div style={{ background: 'rgba(46,204,113,0.05)', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)', marginBottom: '32px' }}>
+              <p style={{ fontSize: '1.2rem', color: '#d0d9e5' }}>
+                <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '10px' }}></i>
+                No venimos a vender un software.
+              </p>
+              <p style={{ fontSize: '1.2rem', color: '#d0d9e5' }}>
+                Venimos a construir, junto a la industria, la <span className="highlight">próxima generación</span> de la gestión de calidad de la fruta de exportación.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="#" className="btn-primary" style={{ fontSize: '1.1rem', padding: '16px 48px' }}>
+                <i className="fas fa-star"></i> Quiero ser Founding Partner
+              </a>
+            </div>
           </div>
 
-          <hr style={{ border: '0.5px solid #1f2a33', margin: '32px 0 28px' }} />
+          <hr style={{ border: '0.5px solid #1f2a33', margin: '40px 0 28px' }} />
 
           <h1 style={{ fontSize: '3.6rem' }}>Cada fruta tiene una historia.</h1>
           <p className="frase-final">
@@ -352,7 +464,7 @@ function PresentationContent() {
 
           <div style={{ marginTop: '28px', color: '#6b7a8f', display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', fontSize: '0.85rem' }}>
             <span><i className="fas fa-lock"></i> Confidencial</span>
-            <span>NX Quality · Versión 0.1</span>
+            <span>NX Quality · Versión Fundacional</span>
             <span><i className="fas fa-globe"></i> nxchile.com</span>
           </div>
         </div>
@@ -572,83 +684,6 @@ function PresentationContent() {
           width: 22px;
         }
 
-        /* ===== TIMELINE — RECORRIDO ===== */
-        .journey {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 28px;
-          padding: 40px 30px;
-          border: 1px solid rgba(46, 204, 113, 0.1);
-          margin-top: 10px;
-          position: relative;
-          overflow: hidden;
-        }
-        .journey::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 6%;
-          right: 6%;
-          height: 3px;
-          background: linear-gradient(90deg, #2ecc71, #3498db, #2ecc71);
-          transform: translateY(-50%);
-          opacity: 0.3;
-          z-index: 0;
-        }
-
-        .journey-steps {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          position: relative;
-          z-index: 1;
-          flex-wrap: wrap;
-          gap: 12px 6px;
-        }
-
-        .journey-step {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 6px;
-          background: #0a0e14;
-          padding: 12px 16px;
-          border-radius: 60px;
-          border: 1px solid rgba(46, 204, 113, 0.25);
-          min-width: 70px;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-        }
-        .journey-step:hover {
-          border-color: #2ecc71;
-          transform: scale(1.05);
-          box-shadow: 0 8px 28px rgba(46, 204, 113, 0.2);
-        }
-        .journey-step i {
-          font-size: 1.6rem;
-          color: #2ecc71;
-        }
-        .journey-step span {
-          font-size: 0.7rem;
-          font-weight: 600;
-          color: #aab7c9;
-          text-align: center;
-          letter-spacing: 0.3px;
-        }
-
-        .journey-legend {
-          text-align: center;
-          margin-top: 24px;
-          color: #aab7c9;
-          font-size: 1rem;
-        }
-        .journey-legend i {
-          color: #2ecc71;
-          margin: 0 6px;
-        }
-        .journey-legend .highlight {
-          font-weight: 700;
-        }
-
         /* ===== SECCIÓN CIERRE ===== */
         .slide-cierre {
           text-align: center;
@@ -750,19 +785,6 @@ function PresentationContent() {
           .grid-3 {
             grid-template-columns: repeat(2, 1fr);
           }
-          .journey-steps {
-            justify-content: center;
-          }
-          .journey-step {
-            padding: 10px 14px;
-            min-width: 60px;
-          }
-          .journey-step i {
-            font-size: 1.3rem;
-          }
-          .journey-step span {
-            font-size: 0.65rem;
-          }
         }
 
         @media (max-width: 768px) {
@@ -785,31 +807,6 @@ function PresentationContent() {
           .slide {
             padding: 40px 0 60px;
             min-height: auto;
-          }
-          .journey {
-            padding: 24px 16px;
-            border-radius: 20px;
-          }
-          .journey::before {
-            display: none;
-          }
-          .journey-steps {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-          }
-          .journey-step {
-            flex-direction: row;
-            gap: 8px;
-            padding: 8px 14px;
-            min-width: auto;
-            border-radius: 40px;
-          }
-          .journey-step i {
-            font-size: 1rem;
-          }
-          .journey-step span {
-            font-size: 0.6rem;
           }
           .slide-cierre h1 {
             font-size: 2.8rem;
@@ -864,15 +861,6 @@ function PresentationContent() {
           }
           .slide-cierre h1 {
             font-size: 2.2rem;
-          }
-          .journey-step {
-            padding: 6px 10px;
-          }
-          .journey-step i {
-            font-size: 0.9rem;
-          }
-          .journey-step span {
-            font-size: 0.55rem;
           }
           .nav-buttons {
             bottom: 200px;

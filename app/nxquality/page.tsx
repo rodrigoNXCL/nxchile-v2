@@ -95,21 +95,21 @@ function PresentationContent() {
           <h1>
             La calidad ya no es <span className="gradient">suficiente</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#aab7c9', maxWidth: '680px', margin: '16px 0 8px' }}>
+          <p style={{ fontSize: '1.3rem', color: '#d0d9e5', maxWidth: '680px', margin: '16px 0 8px' }}>
             El nuevo escenario de la industria
           </p>
-          <p style={{ fontSize: '1rem', color: '#6b7a8f', marginBottom: '32px' }}>
+          <p style={{ fontSize: '1rem', color: '#8899aa', marginBottom: '32px' }}>
             Versión 2.0 · Presentación Estratégica
           </p>
           <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <a href="#slide-1" className="btn-primary" onClick={(e) => { e.preventDefault(); goToSlide(1); }}>
               <i className="fas fa-arrow-right"></i> Explorar la presentación
             </a>
-            <span style={{ display: 'inline-flex', alignItems: 'center', color: '#6b7a8f', gap: '8px', fontSize: '0.9rem' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', color: '#8899aa', gap: '8px', fontSize: '0.9rem' }}>
               <i className="fas fa-chevron-down"></i> 24 diapositivas
             </span>
           </div>
-          <div style={{ marginTop: '60px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.04)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', color: '#6b7a8f', fontSize: '0.8rem' }}>
+          <div style={{ marginTop: '60px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.04)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', color: '#8899aa', fontSize: '0.8rem' }}>
             <span><i className="fas fa-lock"></i> Confidencial</span>
             <span>NX Quality · Versión 2.0</span>
           </div>
@@ -123,20 +123,20 @@ function PresentationContent() {
           <h2>La información pasó a ser un <span className="text-gradient">activo estratégico</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '16px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '16px' }}>
                 Dos exportadoras pueden producir fruta de una calidad muy similar.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
                 Sin embargo, una de ellas responderá un reclamo en minutos. Podrá reconstruir toda la historia de una partida. Justificar técnicamente una decisión. Encontrar patrones antes de que se transformen en problemas.
               </p>
-              <p style={{ color: '#aab7c9', fontStyle: 'italic', borderLeft: '3px solid #2ecc71', paddingLeft: '16px' }}>
+              <p style={{ color: '#d0d9e5', fontStyle: 'italic', borderLeft: '3px solid #2ecc71', paddingLeft: '16px' }}>
                 "La diferencia ya no estará únicamente en la fruta. Estará en la capacidad de transformar información en conocimiento."
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '24px', padding: '28px', border: '1px dashed rgba(46,204,113,0.15)' }}>
               <i className="fas fa-arrow-right" style={{ fontSize: '2rem', color: '#2ecc71', marginBottom: '12px' }}></i>
               <h3 style={{ color: '#fff', fontSize: '1.4rem' }}>Información → Conocimiento</h3>
-              <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>El nuevo activo estratégico</p>
+              <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>El nuevo activo estratégico</p>
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@ function PresentationContent() {
           <h2>Digitalizar fue el <span className="text-gradient">primer paso</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '16px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '16px' }}>
                 Durante los últimos años la industria incorporó excelentes herramientas para digitalizar procesos.
               </p>
               <ul className="benefit-list">
@@ -163,7 +163,7 @@ function PresentationContent() {
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
               <i className="fas fa-exclamation-triangle" style={{ fontSize: '2.5rem', color: '#f1c40f' }}></i>
               <h4 style={{ color: '#fff', margin: '12px 0 8px' }}>El desafío actual</h4>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 Registrar información ya no es suficiente. Ahora es necesario <span className="highlight">comprenderla</span>, <span className="highlight">relacionarla</span>, <span className="highlight">conservarla</span> y utilizarla para decidir mejor.
               </p>
             </div>
@@ -178,10 +178,10 @@ function PresentationContent() {
           <h2>No falta información.<br />Falta <span className="text-gradient">conocimiento</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Cada temporada genera miles de inspecciones, fotografías, mediciones y decisiones técnicas.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Toda esa información existe. Pero permanece distribuida.
               </p>
               <ul className="benefit-list">
@@ -201,7 +201,7 @@ function PresentationContent() {
                 El conocimiento se <span style={{ color: '#e74c3c' }}>pierde</span>.
               </p>
               <div style={{ marginTop: '16px', background: 'rgba(231,76,60,0.05)', borderRadius: '12px', padding: '12px 16px', borderLeft: '4px solid #e74c3c' }}>
-                <p style={{ color: '#aab7c9', fontStyle: 'italic', fontSize: '0.95rem' }}>
+                <p style={{ color: '#d0d9e5', fontStyle: 'italic', fontSize: '0.95rem' }}>
                   "Cuando aparece un reclamo, una auditoría o una decisión crítica, comienza una búsqueda para reconstruir una historia que la empresa ya vivió."
                 </p>
               </div>
@@ -257,16 +257,16 @@ function PresentationContent() {
           </div>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 NX Quality no nace como un sistema de inspecciones. No nace como un software de formularios. No nace como una plataforma para generar reportes.
               </p>
-              <p style={{ color: '#aab7c9', marginTop: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginTop: '12px' }}>
                 Su propósito es <span className="highlight">transformar la información operacional en conocimiento permanente</span> para la empresa.
               </p>
             </div>
             <div style={{ background: '#0f151c', borderRadius: '16px', padding: '20px 24px', border: '1px solid #1f2a33' }}>
-              <p style={{ color: '#6b7a8f', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>No es</p>
-              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+              <p style={{ color: '#8899aa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>No es</p>
+              <ul style={{ listStyle: 'none', color: '#d0d9e5' }}>
                 <li><i className="fas fa-times" style={{ color: '#e74c3c', marginRight: '8px' }}></i> Un sistema de inspecciones</li>
                 <li><i className="fas fa-times" style={{ color: '#e74c3c', marginRight: '8px' }}></i> Un software de formularios</li>
                 <li><i className="fas fa-times" style={{ color: '#e74c3c', marginRight: '8px' }}></i> Una plataforma de reportes</li>
@@ -283,8 +283,8 @@ function PresentationContent() {
           <h2>El <span className="text-gradient">paradigma</span> cambia</h2>
           <div className="grid-2">
             <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h4 style={{ color: '#6b7a8f', marginBottom: '16px' }}><i className="fas fa-arrow-left"></i> Antes</h4>
-              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+              <h4 style={{ color: '#8899aa', marginBottom: '16px' }}><i className="fas fa-arrow-left"></i> Antes</h4>
+              <ul style={{ listStyle: 'none', color: '#c8d2df' }}>
                 <li style={{ marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                   La inspección terminaba cuando se enviaba el informe
                 </li>
@@ -301,7 +301,7 @@ function PresentationContent() {
             </div>
             <div style={{ background: 'rgba(46,204,113,0.03)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(46,204,113,0.15)' }}>
               <h4 style={{ color: '#2ecc71', marginBottom: '16px' }}><i className="fas fa-arrow-right"></i> Ahora</h4>
-              <ul style={{ listStyle: 'none', color: '#d0d9e5' }}>
+              <ul style={{ listStyle: 'none', color: '#e0e8f0' }}>
                 <li style={{ marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid rgba(46,204,113,0.05)' }}>
                   <span className="highlight">La inspección comienza</span> cuando genera conocimiento
                 </li>
@@ -327,8 +327,8 @@ function PresentationContent() {
           <h2>La diferencia no está en los datos.<br />Está en la <span className="text-gradient">inteligencia</span> que generan</h2>
           <div className="grid-2">
             <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h4 style={{ color: '#6b7a8f', marginBottom: '16px' }}>Sistemas tradicionales</h4>
-              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+              <h4 style={{ color: '#8899aa', marginBottom: '16px' }}>Sistemas tradicionales</h4>
+              <ul style={{ listStyle: 'none', color: '#c8d2df' }}>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-times-circle" style={{ color: '#e74c3c', marginRight: '10px' }}></i> Administran información</li>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-times-circle" style={{ color: '#e74c3c', marginRight: '10px' }}></i> Muestran lo que ocurrió</li>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-times-circle" style={{ color: '#e74c3c', marginRight: '10px' }}></i> Registran inspecciones</li>
@@ -337,7 +337,7 @@ function PresentationContent() {
             </div>
             <div style={{ background: 'rgba(46,204,113,0.03)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(46,204,113,0.15)' }}>
               <h4 style={{ color: '#2ecc71', marginBottom: '16px' }}>NX Quality</h4>
-              <ul style={{ listStyle: 'none', color: '#d0d9e5' }}>
+              <ul style={{ listStyle: 'none', color: '#e0e8f0' }}>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> <span className="highlight">Administra conocimiento</span></li>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Ayuda a comprender <span className="highlight">por qué</span> ocurrió</li>
                 <li style={{ marginBottom: '12px' }}><i className="fas fa-check-circle" style={{ color: '#2ecc71', marginRight: '10px' }}></i> Construye <span className="highlight">memoria técnica</span></li>
@@ -359,24 +359,24 @@ function PresentationContent() {
           <h2>La siguiente evolución no es digitalizar.<br />Es <span className="text-gradient">aprender</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Durante los últimos años, la industria dio un paso muy importante: digitalizar procesos.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Hoy es posible registrar inspecciones desde un teléfono, generar informes en segundos y disponer de indicadores casi en tiempo real.
               </p>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 Ese avance transformó la operación. Pero el siguiente desafío ya no consiste en registrar más información.
               </p>
             </div>
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
               <i className="fas fa-arrow-right" style={{ fontSize: '2rem', color: '#2ecc71', marginBottom: '12px' }}></i>
               <h4 style={{ color: '#fff', marginBottom: '8px' }}>El verdadero desafío</h4>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 Consiste en convertir esa información en <span className="highlight">conocimiento que permanezca</span> dentro de la empresa.
               </p>
               <div style={{ marginTop: '16px', background: 'rgba(46,204,113,0.05)', borderRadius: '12px', padding: '12px 16px', borderLeft: '4px solid #2ecc71' }}>
-                <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '0.95rem' }}>
                   <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '6px' }}></i>
                   La verdadera evolución comienza cuando cada inspección <span className="highlight">mejora la siguiente</span>.
                 </p>
@@ -391,51 +391,51 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-balance-scale"></i> Dos enfoques</span>
           <h2>Dos formas de entender la <span className="text-gradient">gestión de calidad</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             La diferencia no está en la tecnología. Está en la <span className="highlight">filosofía</span>.
           </p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
               <thead>
                 <tr style={{ borderBottom: '2px solid #2ecc71' }}>
-                  <th style={{ textAlign: 'left', padding: '12px 16px', color: '#6b7a8f', fontWeight: '600' }}>Gestión tradicional</th>
+                  <th style={{ textAlign: 'left', padding: '12px 16px', color: '#8899aa', fontWeight: '600' }}>Gestión tradicional</th>
                   <th style={{ textAlign: 'left', padding: '12px 16px', color: '#2ecc71', fontWeight: '600' }}>NX Quality</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Registra inspecciones</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Registra inspecciones</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Construye conocimiento</span></td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Genera reportes</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Genera reportes</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Conserva la historia técnica</span></td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Trabaja sobre lotes</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Trabaja sobre lotes</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Trabaja sobre la identidad de la fruta</span></td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Almacena fotografías</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Almacena fotografías</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Relaciona evidencia con decisiones</span></td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Entrega información</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Entrega información</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Entrega contexto para decidir</span></td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Digitaliza procesos</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Digitaliza procesos</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Preserva el conocimiento de la empresa</span></td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '10px 16px', color: '#aab7c9' }}>Analiza la temporada</td>
+                  <td style={{ padding: '10px 16px', color: '#c8d2df' }}>Analiza la temporada</td>
                   <td style={{ padding: '10px 16px', color: '#e8edf2' }}><span className="highlight">Aprende de cada temporada</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div style={{ marginTop: '16px', textAlign: 'center' }}>
-            <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>
+            <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
               <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '6px' }}></i>
               No creemos que la industria necesite más datos. Creemos que necesita <span className="highlight">utilizar mejor los que ya genera</span>.
             </p>
@@ -450,8 +450,8 @@ function PresentationContent() {
           <h2>Los paradigmas que venimos a <span className="text-gradient">cambiar</span></h2>
           <div className="grid-2">
             <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h4 style={{ color: '#6b7a8f', marginBottom: '16px' }}><i className="fas fa-arrow-left"></i> Antes</h4>
-              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+              <h4 style={{ color: '#8899aa', marginBottom: '16px' }}><i className="fas fa-arrow-left"></i> Antes</h4>
+              <ul style={{ listStyle: 'none', color: '#c8d2df' }}>
                 <li style={{ marginBottom: '10px' }}>La calidad era un área</li>
                 <li style={{ marginBottom: '10px' }}>Cada inspección terminaba con un informe</li>
                 <li style={{ marginBottom: '10px' }}>La experiencia permanecía en las personas</li>
@@ -461,7 +461,7 @@ function PresentationContent() {
             </div>
             <div style={{ background: 'rgba(46,204,113,0.03)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(46,204,113,0.15)' }}>
               <h4 style={{ color: '#2ecc71', marginBottom: '16px' }}><i className="fas fa-arrow-right"></i> Ahora</h4>
-              <ul style={{ listStyle: 'none', color: '#d0d9e5' }}>
+              <ul style={{ listStyle: 'none', color: '#e0e8f0' }}>
                 <li style={{ marginBottom: '10px' }}>La calidad impacta directamente la <span className="highlight">competitividad de toda la empresa</span></li>
                 <li style={{ marginBottom: '10px' }}>Cada inspección alimenta una <span className="highlight">historia técnica</span> que sigue creciendo</li>
                 <li style={{ marginBottom: '10px' }}>La experiencia pasa a formar parte del <span className="highlight">patrimonio de la empresa</span></li>
@@ -496,7 +496,7 @@ function PresentationContent() {
             </div>
           </div>
           <div style={{ marginTop: '20px', background: 'rgba(46,204,113,0.05)', borderRadius: '16px', padding: '16px 24px', textAlign: 'center', border: '1px solid rgba(46,204,113,0.1)' }}>
-            <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
+            <p style={{ color: '#e0e8f0', fontSize: '1.05rem' }}>
               <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
               NX Quality nace para que ese conocimiento deje de depender exclusivamente de las personas y pase a formar parte del <span className="highlight">activo más valioso de la empresa</span>: su experiencia.
             </p>
@@ -511,13 +511,13 @@ function PresentationContent() {
           <h2>La <span className="text-gradient">Historia Técnica</span> de la fruta</h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Tradicionalmente, la trazabilidad responde una pregunta:
               </p>
-              <p style={{ fontSize: '1.2rem', color: '#aab7c9', marginBottom: '16px', fontStyle: 'italic' }}>
+              <p style={{ fontSize: '1.2rem', color: '#d0d9e5', marginBottom: '16px', fontStyle: 'italic' }}>
                 "¿Dónde estuvo esta fruta?"
               </p>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Nosotros queremos responder una pregunta mucho más valiosa:
               </p>
               <p style={{ fontSize: '1.2rem', color: '#2ecc71', marginBottom: '16px' }}>
@@ -534,15 +534,15 @@ function PresentationContent() {
             <div style={{ background: '#0f151c', borderRadius: '24px', padding: '28px', border: '1px solid #1f2a33' }}>
               <i className="fas fa-fingerprint" style={{ fontSize: '2.5rem', color: '#2ecc71' }}></i>
               <h4 style={{ color: '#fff', margin: '10px 0 4px' }}>Una única Historia Técnica</h4>
-              <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
                 Una historia que acompaña a la fruta durante todo su ciclo y que permanece disponible para respaldar decisiones futuras.
               </p>
               <div style={{ marginTop: '16px', background: 'rgba(46,204,113,0.05)', borderRadius: '12px', padding: '12px 16px', borderLeft: '4px solid #2ecc71' }}>
-                <p style={{ color: '#d0d9e5', fontSize: '0.9rem' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '0.9rem' }}>
                   <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
                   Productor: Agrícola Los Andes · Variedad: Hass · Cosecha: 15-01-2026
                 </p>
-                <p style={{ color: '#6b7a8f', fontSize: '0.85rem' }}>
+                <p style={{ color: '#8899aa', fontSize: '0.85rem' }}>
                   <i className="fas fa-clipboard-list" style={{ color: '#2ecc71' }}></i> 12 eventos técnicos registrados
                 </p>
               </div>
@@ -558,27 +558,27 @@ function PresentationContent() {
           <h2>El verdadero producto no es el software.<br />Es el <span className="text-gradient">conocimiento</span> que la empresa conserva</h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Los sistemas pueden ser reemplazados. Los formularios pueden cambiar. La tecnología evolucionará.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Pero el <span className="highlight">conocimiento construido durante años</span> es irremplazable.
               </p>
               <div style={{ background: 'rgba(46,204,113,0.05)', borderRadius: '16px', padding: '16px 20px', borderLeft: '4px solid #2ecc71' }}>
-                <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '1.05rem' }}>
                   <i className="fas fa-quote-left" style={{ color: '#2ecc71', marginRight: '6px' }}></i>
                   La próxima ventaja competitiva de las exportadoras no estará únicamente en producir mejor fruta.
                 </p>
-                <p style={{ color: '#d0d9e5', fontSize: '1.05rem', marginTop: '4px' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '1.05rem', marginTop: '4px' }}>
                   Estará en <span className="highlight">proteger, organizar y aprovechar</span> el conocimiento técnico que generan todos los días.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '24px', padding: '28px', border: '1px solid rgba(255,255,255,0.05)' }}>
               <i className="fas fa-arrow-right" style={{ fontSize: '2rem', color: '#2ecc71', marginBottom: '12px' }}></i>
-              <p style={{ color: '#6b7a8f', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>El verdadero producto de NX Quality</p>
+              <p style={{ color: '#8899aa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>El verdadero producto de NX Quality</p>
               <p style={{ fontSize: '1.6rem', color: '#e8edf2', fontWeight: '700' }}>El conocimiento</p>
-              <p style={{ color: '#aab7c9' }}>que la empresa conserva</p>
+              <p style={{ color: '#d0d9e5' }}>que la empresa conserva</p>
             </div>
           </div>
         </div>
@@ -595,7 +595,7 @@ function PresentationContent() {
           <h2>La pregunta ya no es si usted inspecciona su fruta.<br />La pregunta es <span className="text-gradient">qué hace con ese conocimiento</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Cada día su empresa genera cientos de decisiones técnicas.
               </p>
               <ul className="benefit-list">
@@ -605,17 +605,17 @@ function PresentationContent() {
               </ul>
             </div>
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
-              <p style={{ color: '#aab7c9', fontSize: '1.1rem' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '1.1rem' }}>
                 La verdadera pregunta no es cuánta información genera.
               </p>
-              <p style={{ color: '#aab7c9', fontSize: '1.1rem', marginTop: '8px' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '1.1rem', marginTop: '8px' }}>
                 La verdadera pregunta es <span className="highlight">cuánto de ese conocimiento sigue disponible</span> seis meses después.
               </p>
-              <p style={{ color: '#6b7a8f', fontSize: '0.95rem', marginTop: '8px' }}>
+              <p style={{ color: '#8899aa', fontSize: '0.95rem', marginTop: '8px' }}>
                 O la próxima temporada. O dentro de cinco años.
               </p>
               <div style={{ marginTop: '16px', background: 'rgba(46,204,113,0.05)', borderRadius: '12px', padding: '12px 16px', borderLeft: '4px solid #2ecc71' }}>
-                <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '0.95rem' }}>
                   Las empresas que aprendan a conservar ese conocimiento serán las que <span className="highlight">tomarán mejores decisiones</span>.
                 </p>
               </div>
@@ -629,7 +629,7 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-gift"></i> El valor para la empresa</span>
           <h2>¿Qué gana una <span className="text-gradient">exportadora</span>?</h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             Mucho más que un nuevo sistema.
           </p>
           <div className="grid-2">
@@ -661,15 +661,15 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-building"></i> Patrimonio invisible</span>
           <h2>El conocimiento también es <span className="text-gradient">patrimonio</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             Y normalmente no aparece en el balance.
           </p>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Las empresas invierten millones en infraestructura. En frigoríficos. En packing. En maquinaria. En tecnología.
               </p>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Pero existe un activo mucho más difícil de construir:
               </p>
               <ul className="benefit-list">
@@ -683,7 +683,7 @@ function PresentationContent() {
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
               <i className="fas fa-exclamation-triangle" style={{ fontSize: '2.5rem', color: '#f1c40f' }}></i>
               <h4 style={{ color: '#fff', margin: '12px 0 8px' }}>Ese conocimiento rara vez está protegido.</h4>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 NX Quality nace para convertir ese <span className="highlight">patrimonio invisible</span> en un <span className="highlight">activo permanente</span> de la empresa.
               </p>
             </div>
@@ -696,15 +696,15 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-globe-americas"></i> Preparado para el futuro</span>
           <h2>Preparado para los <span className="text-gradient">nuevos mercados</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             Porque las exigencias seguirán creciendo.
           </p>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Hoy ya no basta con demostrar que una inspección fue realizada.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Será cada vez más importante demostrar:
               </p>
               <ul className="benefit-list">
@@ -718,10 +718,10 @@ function PresentationContent() {
             <div style={{ background: '#0f151c', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
               <i className="fas fa-rocket" style={{ fontSize: '2.5rem', color: '#2ecc71' }}></i>
               <h4 style={{ color: '#fff', margin: '12px 0 8px' }}>Diseñado para los próximos diez años</h4>
-              <p style={{ color: '#aab7c9' }}>
+              <p style={{ color: '#d0d9e5' }}>
                 Las empresas que puedan responder esas preguntas con rapidez y confianza estarán <span className="highlight">mejor preparadas para competir</span>.
               </p>
-              <p style={{ color: '#6b7a8f', fontSize: '0.9rem', marginTop: '12px' }}>
+              <p style={{ color: '#8899aa', fontSize: '0.9rem', marginTop: '12px' }}>
                 NX Quality fue concebido pensando en esa realidad. No en la de ayer.
               </p>
             </div>
@@ -734,29 +734,29 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-chess-queen"></i> Decisión estratégica</span>
           <h2>La decisión es <span className="text-gradient">estratégica</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             No tecnológica.
           </p>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Las tecnologías cambian. Los sistemas evolucionan. Los dispositivos se reemplazan.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Pero las empresas que logran <span className="highlight">conservar y aprovechar su conocimiento</span> construyen una ventaja que permanece.
               </p>
             </div>
             <div style={{ background: 'rgba(46,204,113,0.03)', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)' }}>
-              <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
+              <p style={{ color: '#e0e8f0', fontSize: '1.05rem' }}>
                 Creemos que la próxima gran diferencia entre las exportadoras no estará únicamente en producir mejor fruta.
               </p>
-              <p style={{ color: '#d0d9e5', fontSize: '1.05rem', marginTop: '8px' }}>
+              <p style={{ color: '#e0e8f0', fontSize: '1.05rem', marginTop: '8px' }}>
                 Estará en <span className="highlight">quién aprende más rápido</span>.
               </p>
-              <p style={{ color: '#d0d9e5', fontSize: '1.05rem', marginTop: '4px' }}>
+              <p style={{ color: '#e0e8f0', fontSize: '1.05rem', marginTop: '4px' }}>
                 Quién <span className="highlight">conserva mejor su experiencia</span>.
               </p>
-              <p style={{ color: '#d0d9e5', fontSize: '1.05rem', marginTop: '4px' }}>
+              <p style={{ color: '#e0e8f0', fontSize: '1.05rem', marginTop: '4px' }}>
                 Y quién transforma ese conocimiento en <span className="highlight">mejores decisiones</span>.
               </p>
             </div>
@@ -775,10 +775,10 @@ function PresentationContent() {
           <h2>La calidad ya no es una ventaja.<br />Es el <span className="text-gradient">punto de partida</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Durante años, producir fruta de calidad fue el gran diferenciador de una exportadora.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Hoy eso ya no basta.
               </p>
               <ul className="benefit-list">
@@ -794,7 +794,7 @@ function PresentationContent() {
               <p style={{ fontSize: '1.8rem', color: '#2ecc71', textAlign: 'center', fontWeight: '700' }}>
                 Se convirtió en el estándar mínimo.
               </p>
-              <p style={{ color: '#aab7c9', textAlign: 'center', marginTop: '12px' }}>
+              <p style={{ color: '#d0d9e5', textAlign: 'center', marginTop: '12px' }}>
                 La próxima ventaja competitiva estará en otro lugar.
               </p>
             </div>
@@ -807,13 +807,13 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-brain"></i> La nueva ventaja</span>
           <h2>La diferencia estará en <span className="text-gradient">quién aprenda más rápido</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             No todas las empresas evolucionarán al mismo ritmo.
           </p>
           <div className="grid-2">
             <div style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h4 style={{ color: '#6b7a8f', marginBottom: '16px' }}>Algunas empresas...</h4>
-              <ul style={{ listStyle: 'none', color: '#aab7c9' }}>
+              <h4 style={{ color: '#8899aa', marginBottom: '16px' }}>Algunas empresas...</h4>
+              <ul style={{ listStyle: 'none', color: '#c8d2df' }}>
                 <li style={{ marginBottom: '10px' }}>Seguirán registrando información</li>
                 <li style={{ marginBottom: '10px' }}>Seguirán reaccionando a los problemas</li>
                 <li style={{ marginBottom: '10px' }}>Dependerán del conocimiento de personas específicas</li>
@@ -821,7 +821,7 @@ function PresentationContent() {
             </div>
             <div style={{ background: 'rgba(46,204,113,0.03)', borderRadius: '20px', padding: '24px', border: '1px solid rgba(46,204,113,0.15)' }}>
               <h4 style={{ color: '#2ecc71', marginBottom: '16px' }}>Otras empresas...</h4>
-              <ul style={{ listStyle: 'none', color: '#d0d9e5' }}>
+              <ul style={{ listStyle: 'none', color: '#e0e8f0' }}>
                 <li style={{ marginBottom: '10px' }}>Comenzarán a convertir esa información en <span className="highlight">decisiones más inteligentes</span></li>
                 <li style={{ marginBottom: '10px' }}>Serán capaces de <span className="highlight">anticipar</span> los problemas</li>
                 <li style={{ marginBottom: '10px' }}>Construirán un <span className="highlight">patrimonio técnico</span> que permanecerá en la organización</li>
@@ -829,7 +829,7 @@ function PresentationContent() {
             </div>
           </div>
           <div style={{ marginTop: '16px', textAlign: 'center' }}>
-            <p style={{ color: '#aab7c9' }}>
+            <p style={{ color: '#d0d9e5' }}>
               <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
               La diferencia no será tecnológica. Será <span className="highlight">estratégica</span>.
             </p>
@@ -842,7 +842,7 @@ function PresentationContent() {
         <div className="container slide-content">
           <span className="badge"><i className="fas fa-eye"></i> La visión a futuro</span>
           <h2>Imagine su empresa en <span className="text-gradient">cinco años</span></h2>
-          <p style={{ color: '#aab7c9', marginBottom: '16px' }}>
+          <p style={{ color: '#d0d9e5', marginBottom: '16px' }}>
             ¿Qué organización quiere construir?
           </p>
           <div className="grid-3">
@@ -873,7 +873,7 @@ function PresentationContent() {
             </div>
           </div>
           <div style={{ marginTop: '16px', textAlign: 'center' }}>
-            <p style={{ color: '#aab7c9', fontSize: '1.05rem' }}>
+            <p style={{ color: '#d0d9e5', fontSize: '1.05rem' }}>
               <i className="fas fa-arrow-right" style={{ color: '#2ecc71' }}></i>
               <span className="highlight">Ese es el verdadero propósito de NX Quality.</span>
             </p>
@@ -888,23 +888,23 @@ function PresentationContent() {
           <h2>NX Quality no es una inversión en software.<br />Es una inversión en la capacidad de su empresa para <span className="text-gradient">decidir mejor</span></h2>
           <div className="grid-2">
             <div>
-              <p style={{ color: '#c8d2df', marginBottom: '12px' }}>
+              <p style={{ color: '#e0e8f0', marginBottom: '12px' }}>
                 Las plataformas tecnológicas evolucionan. Los dispositivos cambian. Los procesos mejoran.
               </p>
-              <p style={{ color: '#aab7c9', marginBottom: '12px' }}>
+              <p style={{ color: '#d0d9e5', marginBottom: '12px' }}>
                 Pero las organizaciones que <span className="highlight">aprenden más rápido</span> generan ventajas que son extremadamente difíciles de copiar.
               </p>
               <div style={{ background: 'rgba(46,204,113,0.05)', borderRadius: '16px', padding: '16px 20px', borderLeft: '4px solid #2ecc71' }}>
-                <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '0.95rem' }}>
                   NX Quality no busca reemplazar la experiencia de las personas.
                 </p>
-                <p style={{ color: '#d0d9e5', fontSize: '0.95rem', marginTop: '4px' }}>
+                <p style={{ color: '#e0e8f0', fontSize: '0.95rem', marginTop: '4px' }}>
                   Busca <span className="highlight">amplificarla</span>, <span className="highlight">protegerla</span> y convertirla en uno de los activos estratégicos más valiosos de la empresa.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#0f151c', borderRadius: '24px', padding: '28px', border: '1px solid #1f2a33' }}>
-              <p style={{ color: '#6b7a8f', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>El impacto</p>
+              <p style={{ color: '#8899aa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>El impacto</p>
               <p style={{ fontSize: '1.2rem', color: '#e8edf2' }}>
                 Una mejor decisión puede cambiar el destino de una partida.
               </p>
@@ -922,10 +922,10 @@ function PresentationContent() {
           <span className="badge"><i className="fas fa-heart"></i> Nuestra convicción</span>
 
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <p style={{ fontSize: '1.2rem', color: '#c8d2df', marginBottom: '16px' }}>
+            <p style={{ fontSize: '1.2rem', color: '#e0e8f0', marginBottom: '16px' }}>
               No creemos que la industria necesite otro sistema de inspecciones.
             </p>
-            <p style={{ fontSize: '1.2rem', color: '#aab7c9', marginBottom: '24px' }}>
+            <p style={{ fontSize: '1.2rem', color: '#d0d9e5', marginBottom: '24px' }}>
               Creemos que necesita una <span className="highlight">nueva forma de gestionar el conocimiento</span> que genera todos los días.
             </p>
 
@@ -945,10 +945,10 @@ function PresentationContent() {
             </div>
 
             <div style={{ background: 'rgba(46,204,113,0.05)', borderRadius: '20px', padding: '28px', border: '1px solid rgba(46,204,113,0.1)', marginBottom: '32px' }}>
-              <p style={{ fontSize: '1.1rem', color: '#d0d9e5' }}>
+              <p style={{ fontSize: '1.1rem', color: '#e0e8f0' }}>
                 Transformar años de operación en una <span className="highlight">ventaja competitiva permanente</span>.
               </p>
-              <p style={{ color: '#6b7a8f', fontSize: '0.9rem', marginTop: '4px' }}>
+              <p style={{ color: '#8899aa', fontSize: '0.9rem', marginTop: '4px' }}>
                 Esa es la visión que dio origen a NX Quality.
               </p>
             </div>
@@ -987,23 +987,23 @@ function PresentationContent() {
               border: '1px solid rgba(46,204,113,0.15)',
               marginBottom: '24px'
             }}>
-              <p style={{ color: '#6b7a8f', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+              <p style={{ color: '#8899aa', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
                 <i className="fas fa-phone" style={{ color: '#2ecc71', marginRight: '8px' }}></i> Contacto
               </p>
               <p style={{ color: '#e8edf2', fontSize: '1.1rem', fontWeight: '600' }}>
                 Rodrigo Chandia · CEO
               </p>
-              <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
                 <i className="fas fa-envelope" style={{ color: '#2ecc71', marginRight: '8px', width: '20px' }}></i>
-                <a href="mailto:rodrigo@nxchile.com" style={{ color: '#aab7c9', textDecoration: 'none' }}>rodrigo@nxchile.com</a>
+                <a href="mailto:rodrigo@nxchile.com" style={{ color: '#d0d9e5', textDecoration: 'none' }}>rodrigo@nxchile.com</a>
               </p>
-              <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
                 <i className="fab fa-whatsapp" style={{ color: '#2ecc71', marginRight: '8px', width: '20px' }}></i>
-                <a href="https://wa.me/56977412178" style={{ color: '#aab7c9', textDecoration: 'none' }}>+56 9 7741 2178</a>
+                <a href="https://wa.me/56977412178" style={{ color: '#d0d9e5', textDecoration: 'none' }}>+56 9 7741 2178</a>
               </p>
-              <p style={{ color: '#aab7c9', fontSize: '0.95rem' }}>
+              <p style={{ color: '#d0d9e5', fontSize: '0.95rem' }}>
                 <i className="fas fa-globe" style={{ color: '#2ecc71', marginRight: '8px', width: '20px' }}></i>
-                <a href="https://www.nxchile.com" style={{ color: '#aab7c9', textDecoration: 'none' }}>www.nxchile.com</a>
+                <a href="https://www.nxchile.com" style={{ color: '#d0d9e5', textDecoration: 'none' }}>www.nxchile.com</a>
               </p>
             </div>
 
@@ -1030,7 +1030,7 @@ function PresentationContent() {
             <i className="fas fa-circle"></i>
           </p>
 
-          <div style={{ marginTop: '28px', color: '#6b7a8f', display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', fontSize: '0.85rem' }}>
+          <div style={{ marginTop: '28px', color: '#8899aa', display: 'flex', justifyContent: 'center', gap: '32px', flexWrap: 'wrap', fontSize: '0.85rem' }}>
             <span><i className="fas fa-lock"></i> Confidencial</span>
             <span>NX Quality · Versión 2.0</span>
             <span><i className="fas fa-globe"></i> nxchile.com</span>
@@ -1140,6 +1140,7 @@ function PresentationContent() {
           letter-spacing: -0.02em;
           line-height: 1.2;
           margin-bottom: 1.2rem;
+          color: #e8edf2;
         }
         h2 i {
           color: #2ecc71;
@@ -1227,11 +1228,11 @@ function PresentationContent() {
         }
         .card h3 {
           font-size: 1.3rem;
-          color: #fff;
+          color: #e8edf2;
           margin-bottom: 8px;
         }
         .card p {
-          color: #aab7c9;
+          color: #c8d2df;
           font-size: 0.95rem;
         }
 
@@ -1265,7 +1266,7 @@ function PresentationContent() {
         }
         .slide-cierre .frase-final {
           font-size: 1.6rem;
-          color: #aab7c9;
+          color: #c8d2df;
           margin-top: 12px;
           letter-spacing: 1px;
         }
@@ -1347,7 +1348,6 @@ function PresentationContent() {
         }
 
         /* ===== OCULTAR HEADER, FOOTER Y FLOTANTES DEL SITIO PRINCIPAL ===== */
-        /* Esto oculta cualquier header, footer o elemento flotante del sitio base */
         header,
         .Header,
         .header,
@@ -1367,7 +1367,6 @@ function PresentationContent() {
           display: none !important;
         }
 
-        /* Ajuste para que el contenido ocupe todo el espacio */
         body {
           padding-top: 0 !important;
           margin-top: 0 !important;
@@ -1378,7 +1377,6 @@ function PresentationContent() {
           margin-top: 0 !important;
         }
 
-        /* Si el header es sticky o fixed */
         header.fixed,
         header.sticky,
         .Header.fixed,

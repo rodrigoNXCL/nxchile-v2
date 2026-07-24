@@ -1007,9 +1007,16 @@ function PresentationContent() {
               </p>
             </div>
 
+            {/* ===== BOTÓN CTA A WHATSAPP ===== */}
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="https://wa.me/56977412178?text=Hola%20Rodrigo%2C%20vi%20la%20presentaci%C3%B3n%20NX%20Quality%20y%20quiero%20conocer%20m%C3%A1s%20sobre%20c%C3%B3mo%20puedo%20ser%20parte%20del%20programa%20Founding%20Partners" className="btn-primary" style={{ fontSize: '1.1rem', padding: '16px 48px' }}>
-                <i className="fas fa-star"></i> Quiero conocer más
+              <a 
+                href="https://wa.me/56977412178?text=Hola%20Rodrigo%2C%20vi%20la%20presentaci%C3%B3n%20NX%20Quality%20y%20quiero%20conocer%20m%C3%A1s%20sobre%20c%C3%B3mo%20puedo%20ser%20parte%20del%20programa%20Founding%20Partners" 
+                className="btn-primary" 
+                style={{ fontSize: '1.1rem', padding: '16px 48px' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp"></i> Quiero conocer más
               </a>
             </div>
           </div>
@@ -1100,7 +1107,7 @@ function PresentationContent() {
           height: 100vh;
           display: flex;
           align-items: center;
-          padding: 80px 0 100px; /* padding-bottom extra para que no tape la barra inferior */
+          padding: 80px 0 100px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.04);
           position: relative;
           overflow-y: auto;
@@ -1339,6 +1346,49 @@ function PresentationContent() {
           background: rgba(46, 204, 113, 0.4);
         }
 
+        /* ===== OCULTAR HEADER, FOOTER Y FLOTANTES DEL SITIO PRINCIPAL ===== */
+        /* Esto oculta cualquier header, footer o elemento flotante del sitio base */
+        header,
+        .Header,
+        .header,
+        nav.navbar,
+        .navbar,
+        [role="banner"],
+        footer,
+        .Footer,
+        .footer,
+        [class*="Float"],
+        .whatsapp-float,
+        .instagram-float,
+        [class*="flotante"],
+        [class*="floating"],
+        .fixed.bottom-\\[100px\\],
+        .fixed.bottom-\\[120px\\] {
+          display: none !important;
+        }
+
+        /* Ajuste para que el contenido ocupe todo el espacio */
+        body {
+          padding-top: 0 !important;
+          margin-top: 0 !important;
+        }
+
+        main {
+          padding-top: 0 !important;
+          margin-top: 0 !important;
+        }
+
+        /* Si el header es sticky o fixed */
+        header.fixed,
+        header.sticky,
+        .Header.fixed,
+        .Header.sticky,
+        header[style*="fixed"],
+        header[style*="sticky"] {
+          position: static !important;
+          display: none !important;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
           h1 {
@@ -1433,7 +1483,6 @@ function PresentationContent() {
             grid-template-columns: 1fr;
           }
 
-          /* Contacto en móvil */
           .slide-cierre div[style*="background: rgba(255,255,255,0.02)"] {
             padding: 20px !important;
           }

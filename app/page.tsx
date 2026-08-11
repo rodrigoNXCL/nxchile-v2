@@ -1,14 +1,14 @@
 import Hero from "@/components/Hero";
-import ExperienciaReal from "@/components/ExperienciaReal";
-import ClientesHome from "@/components/ClientesHome";
+import ClientMarquee from "@/components/ClientMarquee";
+import HowWeWork from "@/components/HowWeWork";
 import FinalCTA from "@/components/FinalCTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ExperienciaReal />
-      <ClientesHome />
+      <ClientMarquee />
+      <HowWeWork />
       <FinalCTA />
     </>
   );

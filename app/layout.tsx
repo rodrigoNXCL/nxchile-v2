@@ -6,30 +6,37 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import InstagramFloat from "@/components/InstagramFloat";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "NXChile | Resolvemos problemas operativos con tecnología",
-  description: "Soluciones a medida para empresas. Deja de perder tiempo con procesos manuales y WhatsApp.",
+  title: "NXChile | Soluciones Tecnológicas Operativas",
+  description: "Digitalización, automatización y plataformas de gestión para empresas que buscan orden, trazabilidad y eficiencia real.",
+  keywords: ["tecnología operacional", "digitalización", "automatización", "gestión empresarial", "NXChile"],
+  openGraph: {
+    title: "NXChile | Soluciones Tecnológicas Operativas",
+    description: "Transformamos problemas operativos en sistemas claros, trazables y eficientes.",
+    url: "https://nxchile.cl",
+    siteName: "NXChile",
+    locale: "es_CL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NXChile | Soluciones Tecnológicas Operativas",
+    description: "Transformamos problemas operativos en sistemas claros, trazables y eficientes.",
+  },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="es">
-      <head>
-        {/* Font Awesome para iconos */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-      </head>
-      <body className={inter.className}>
+    <html lang="es" className={inter.variable}>
+      <body className="antialiased bg-[var(--bg)] text-[var(--text-primary)] min-h-screen flex flex-col">
         <Header />
-        <main>{children}</main>
+        <main className="flex-1 pt-20 md:pt-24">{children}</main>
         <Footer />
         <WhatsAppFloat />
         <InstagramFloat />

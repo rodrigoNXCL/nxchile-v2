@@ -5,12 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function NXQualityPage() {
   return (
-    <main style={{
-      minHeight: '100vh',
-      backgroundColor: '#0a0e14',
-      marginTop: 0,
-      paddingTop: 0,
-    }}>
+    <main className="nxquality-main">
       <PresentationContent />
     </main>
   );
@@ -904,7 +899,7 @@ function PresentationContent() {
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#0f151c', borderRadius: '24px', padding: '28px', border: '1px solid #1f2a33' }}>
-              <p style={{ color: '#8899aa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>El impacto</p>
+              <p style={{ color: '#8899aa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Resultados</p>
               <p style={{ fontSize: '1.2rem', color: '#e8edf2' }}>
                 Una mejor decisión puede cambiar el destino de una partida.
               </p>

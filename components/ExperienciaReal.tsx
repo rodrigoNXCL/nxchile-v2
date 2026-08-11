@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const casos = [
   {
     id: 1,
@@ -17,11 +19,11 @@ const casos = [
   },
   {
     id: 3,
-    titulo: "Exportadora Surberries",
-    rubro: "Exportación de alimentos",
-    problema: "Información comercial dispersa. Fichas técnicas, documentación y presencia comercial poco estandarizada.",
-    solucion: "Desarrollo de activos digitales, fichas comerciales y estructura de comunicación.",
-    resultado: "Información consistente. Mejor presentación comercial. Mayor facilidad para compartir información con clientes y compradores."
+    titulo: "Operación y trazabilidad",
+    rubro: "Agroindustria y exportación",
+    problema: "Procesos comerciales y operativos fragmentados. Falta de trazabilidad, consistencia y herramientas adaptadas a la realidad del negocio.",
+    solucion: "Diseño de soluciones digitales a medida con enfoque en calidad, operación y responsividad.",
+    resultado: "Mejor control operacional. Información más clara. Proyectos más alineados con la escala del negocio."
   },
   {
     id: 4,
@@ -43,44 +45,41 @@ const casos = [
 
 export default function ExperienciaReal() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Experiencia <span className="text-[#1B5E20]">aplicada</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#0f172a]">
+            Experiencia <span className="text-[var(--color-accent)]">aplicada</span>
           </h2>
-          <p className="text-gray-500 text-lg mt-3">
+          <p className="text-slate-600 text-lg mt-3">
             Problemas reales que ya hemos resuelto en distintos rubros.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 lg:grid-cols-3">
           {casos.map((c) => (
-            <div
-              key={c.id}
-              className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-shadow hover:border-[#1B5E20]/20"
-            >
-              <div className="mb-2">
-                <span className="text-xs font-semibold text-[#1B5E20] uppercase tracking-wider">
+            <article key={c.id} className="rounded-[32px] border border-slate-200 bg-slate-50 p-8 shadow-[0_30px_60px_-35px_rgba(15,23,42,0.18)] transition hover:-translate-y-1 hover:shadow-[0_35px_65px_-35px_rgba(15,23,42,0.24)]">
+              <div className="mb-6">
+                <span className="inline-flex rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
                   {c.rubro}
                 </span>
-                <h3 className="text-xl font-semibold text-gray-900 mt-1">{c.titulo}</h3>
+                <h3 className="mt-5 text-2xl font-semibold text-[#0f172a]">{c.titulo}</h3>
               </div>
-              <div className="space-y-4 mt-4">
+              <div className="space-y-6 text-slate-600">
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Problema</p>
-                  <p className="text-gray-700 text-sm leading-relaxed">{c.problema}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Problema</p>
+                  <p className="mt-2 text-sm leading-7">{c.problema}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Solución</p>
-                  <p className="text-gray-700 text-sm leading-relaxed">{c.solucion}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Solución</p>
+                  <p className="mt-2 text-sm leading-7">{c.solucion}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Resultado</p>
-                  <p className="text-gray-900 font-medium text-sm leading-relaxed">{c.resultado}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Resultado</p>
+                  <p className="mt-2 text-sm font-semibold leading-7 text-[#0f172a]">{c.resultado}</p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

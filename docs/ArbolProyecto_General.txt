@@ -1,0 +1,64 @@
+.
+.gitignore
+app
+app/clientes
+app/clientes/page.tsx
+app/contacto
+app/contacto/page.tsx
+app/experiencia
+app/experiencia/page.tsx
+app/globals.css          # ✅ Fix: focus:ring con hex + offset (Tailwind compat)
+app/layout.tsx           # ✅ Apple-like layout + Header integration
+app/nxquality
+app/nxquality/page.tsx
+app/page.tsx
+components
+components/ClientesHome.tsx
+components/ClientMarquee.tsx
+components/ExperienciaReal.tsx
+components/FinalCTA.tsx
+components/Footer.tsx
+components/Header.tsx    # ✅ Sticky nav, mobile menu, scroll effect Apple-style
+components/Hero.tsx
+components/InstagramFloat.tsx
+components/PremiumStats.tsx
+components/WhatsAppFloat.tsx
+docs
+docs/ArbolProyecto_General.txt  # ✅ Actualizado hoy
+docs/current.md                 # ✅ Actualizado hoy
+docs/IA_Rules.md
+eslint.config.mjs
+Modelfile
+next.config.js
+next-env.d.ts
+package.json
+package-lock.json
+postcss.config.mjs
+public
+public/file.svg
+public/globe.svg
+public/images
+public/images/clientes
+public/images/clientes/ac_logo.png
+public/images/clientes/bastcon.jpg
+public/images/clientes/muevo.jpg
+public/images/clientes/qpq_logo.jpg
+public/images/clientes/RCCServicios.jpeg
+public/images/clientes/sanAndres.png
+public/images/clientes/Surberries_Logo.png
+public/images/clientes/vmp.png
+public/images/hero-before-after.png
+public/images/logo.svg
+public/images/logo-colored.svg
+public/images/problema1.png
+public/images/problema2.png
+public/images/problema3.png
+public/images/problema4.png
+public/images/problema5.png
+public/images/problema6.png
+public/next.svg
+public/vercel.svg
+public/window.svg
+README.md
+tailwind.config.ts
+tsconfig.json

@@ -25,52 +25,84 @@ const clientes = [
 
 export default function ClientesPage() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container-custom max-w-5xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Clientes
-        </h1>
-        <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12">
-          Empresas que confían en NXChile para ordenar y fortalecer su operación.
-        </p>
+    <section className="bg-[var(--color-background)] px-4 py-16 sm:px-0 sm:py-24">
+      <div className="container-custom mx-auto max-w-6xl">
+        <div className="mb-16 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <div className="max-w-3xl">
+              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)] mb-4">Clientes premium</p>
+              <h1 className="text-4xl md:text-5xl font-semibold text-[#0f172a] mb-4">
+                Operaciones que ganan enfoque, control y crecimiento.
+              </h1>
+              <p className="text-slate-600 text-lg leading-8">
+                Equipos exigentes eligen NXChile para convertir complejidad en procesos claros, control total y resultados medibles.
+              </p>
+            </div>
+          </div>
 
-        {/* Lista de clientes */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {clientes.map((c, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow hover:border-[#1B5E20]/20 flex items-center gap-4"
-            >
-              <div className="text-4xl">{c.icono}</div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900">{c.nombre}</h3>
-                <p className="text-gray-500 text-sm">{c.descripcion}</p>
+          <div className="rounded-[32px] border border-[var(--color-border)] bg-white p-6 shadow-[0_35px_70px_-40px_rgba(15,23,42,0.18)] sm:p-10">
+            <div className="max-w-xl">
+              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)] mb-3">
+                Valor estratégico
+              </p>
+              <h2 className="text-3xl font-semibold text-[#0f172a] mb-4">
+                Información clara para decisiones más seguras.
+              </h2>
+              <p className="text-slate-600 leading-7">
+                Nuestro enfoque es entregar visibilidad real sobre tus proyectos y procesos sin distracciones.
+              </p>
+
+              <div className="mt-8 grid gap-4">
+                <div className="rounded-[28px] bg-[var(--color-background)] border border-[var(--color-border)] p-6">
+                  <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)] mb-2">Control</p>
+                  <p className="text-slate-600">Guía clara para mantener el pulso de tu operación.</p>
+                </div>
+                <div className="rounded-[28px] bg-[var(--color-background)] border border-[var(--color-border)] p-6">
+                  <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)] mb-2">Transparencia</p>
+                  <p className="text-slate-600">Proyectos visibles y entregables medibles.</p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {clientes.map((c, i) => (
+            <article
+              key={i}
+              className="rounded-[28px] border border-[var(--color-border)] bg-white p-6 shadow-[0_25px_50px_-35px_rgba(15,23,42,0.18)] transition hover:-translate-y-1 hover:shadow-[0_25px_50px_-20px_rgba(15,23,42,0.22)] sm:p-8"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[var(--color-accent)]/10 text-3xl text-[var(--color-accent)]">
+                  {c.icono}
+                </div>
+                <h3 className="text-xl font-semibold text-[#0f172a]">{c.nombre}</h3>
+              </div>
+              <p className="text-slate-600 leading-7">{c.descripcion}</p>
+            </article>
           ))}
         </div>
 
-        {/* Portal de clientes */}
-        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">Portal de clientes</h2>
-          <p className="text-gray-600 mb-6">
-            Accede a tu historial, trabajos realizados y seguimiento de proyectos.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#1B5E20] text-white px-6 py-2 rounded-full hover:bg-[#2E7D32] transition-colors">
-              Iniciar sesión
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors">
-              Solicitar acceso
-            </button>
+        <div className="premium-panel mt-16">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] items-center">
+            <div>
+              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)] mb-3">Portal exclusivo</p>
+              <h2 className="text-3xl font-semibold text-[#0f172a] mb-3">Portal de clientes</h2>
+              <p className="text-slate-600 leading-7">
+                Accede a tu historial, proyectos y seguimiento con una experiencia diseñada para operaciones de alto rendimiento.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <button className="btn-primary w-full">Iniciar sesión</button>
+              <button className="btn-secondary w-full">Solicitar acceso</button>
+            </div>
           </div>
-          <p className="text-xs text-gray-400 mt-4">
+          <p className="mt-6 text-sm text-[#64748b]">
             Próximamente: portal con seguimiento detallado de tus proyectos.
           </p>
         </div>
       </div>
 
-      {/* Cinta de logos (fuera del contenedor para que sea de ancho completo) */}
       <ClientMarquee />
     </section>
   );

@@ -1,11 +1,17 @@
 NXChile v2 - Resumen del Proyecto
-Última actualización: 9 de abril de 2026
+Última actualización: 28 de agosto de 2026
 
-✅ Avances del Día
-- [FIX CRÍTICO] Resuelto error de build "Unclosed block": @apply multilínea → single-line para compatibilidad con Turbopack/PostCSS
-- [DESIGN SYSTEM] `globals.css` consolidado con variables CSS + @layer (base/components/utilities)
-- [LAYOUT] `app/layout.tsx` implementado con metadata completa, padding compensatorio para header sticky
-- [HEADER] `components/Header.tsx` refactorizado: nav sticky con backdrop-blur, mobile menu con overlay, active states, scroll detection
+✅ Avances — Optimización www.nxchile.com (Brief Agosto 2026)
+- [HERO] Subtítulo actualizado al nuevo texto. CTA secundario "Ver nuestros productos" → ancla #soluciones
+- [NUEVA SECCIÓN] `components/Soluciones.tsx` con id `#soluciones`: cards GastosNX + TransNX, beneficios, CTAs externos, botón "Hablar de una solución a medida"
+- [CLIENTES] `ClientMarquee.tsx` ahora con subtítulo "Empresas que ya ordenaron su operación con NXChile (incluyendo usuarios de GastosNX y TransNX)"
+- [METODOLOGÍA] `HowWeWork.tsx` — subtítulo y tag del paso 02 ajustados a coherencia "productos + a medida"
+- [NUEVA SECCIÓN] `components/ParaQuien.tsx` — "Liberamos trabas operacionales en distintos tipos de empresas" con 5 segmentos
+- [CTA FINAL] `FinalCTA.tsx` — texto menciona GastosNX, TransNX y a medida. Botón "Solicitar evaluación gratuita". Enlaces directos a los productos
+- [HEADER] Menú con dropdown "Soluciones" (desktop hover/click + mobile expandible). Orden: Inicio · Soluciones · Cómo trabajamos · Clientes · Contacto · CTA verde
+- [FOOTER] Nueva estructura 4 columnas: marca + Productos (GastosNX, TransNX, a medida) + Empresa
+- [HOME] `app/page.tsx` reordenado: Hero → ClientMarquee → Soluciones → HowWeWork (#como-trabajamos) → ParaQuien → FinalCTA
+- [BUILD] `npm run build` OK — TypeScript y compilación sin errores
 
 🎨 Sistema de Diseño Apple-like (Activo)
 - Espaciado: `container-premium` (max-w-5xl, px-6 md:px-12)
@@ -18,25 +24,38 @@ NXChile v2 - Resumen del Proyecto
 | Componente | Estado | Notas |
 |---|---|---|
 | layout.tsx | ✅ Listo | Metadata, padding, estructura global |
-| Header.tsx | ✅ Listo | Sticky, mobile, scroll effect, active states |
-| globals.css | ✅ Listo | Design system base, fix Tailwind + parsing aplicado |
-| Hero.tsx | ⏳ Pendiente | Próximo en refactor (Punto 2) |
-| Footer.tsx | ⏳ Pendiente | Ajustar a estilo premium |
+| Header.tsx | ✅ Listo | Dropdown Soluciones desktop+mobile, CTA verde, scroll effect |
+| Hero.tsx | ✅ Listo | Brief Agosto 2026 aplicado |
+| ClientMarquee.tsx | ✅ Listo | Subtítulo + marquee de logos |
+| Soluciones.tsx | ✅ Listo | Nueva sección #soluciones con 2 cards |
+| HowWeWork.tsx | ✅ Listo | Copy actualizado |
+| ParaQuien.tsx | ✅ Listo | Nueva sección de segmentos |
+| FinalCTA.tsx | ✅ Listo | Texto + CTA + enlaces productos |
+| Footer.tsx | ✅ Listo | 4 columnas con productos |
+| globals.css | ✅ Listo | Design system base |
+
+🔗 Enlaces externos obligatorios (verificados)
+- GastosNX → https://gastos.nxchile.com (cards, menú, CTA final, footer)
+- TransNX → https://trans.nxchile.com (cards, menú, CTA final, footer)
+- Evaluación gratuita → /contacto
+- Ancla interna → #soluciones (scroll suave aplicado con scroll-mt-24)
 
 🚧 Deuda Técnica / Observaciones
 - Web3forms access_key aún en client-side (seguridad) → Prioridad media
-- Datos de clientes duplicados en 3 componentes → Centralizar en `data/clientes.ts`
+- Datos de clientes duplicados en componentes → Centralizar en `data/clientes.ts`
 - NX Quality (24 slides) en un solo archivo → Refactor modular futuro
+- Componentes sin uso en home: `ClientesHome.tsx`, `PremiumStats.tsx`, `ExperienciaReal.tsx` — quedan disponibles para `/experiencia` u otras páginas
 
 🎯 Próximos Pasos (Orden de Prioridad)
-1. [Punto 2] Refactor `Hero.tsx` con enfoque Apple: tipografía grande, layout centrado, CTA jerarquizado
-2. Ajustar `Footer.tsx` para coherencia visual con nuevo design system
-3. Centralizar datos de clientes (`data/clientes.ts`) para mantener consistencia
+1. Revisar visualmente cada sección en navegador (dev server)
+2. Verificar scroll a ancla `#soluciones` desde el CTA del Hero
+3. Validar responsive del dropdown "Soluciones" en mobile
 4. [Seguridad] Mover web3forms a API Route server-side
+5. Centralizar datos de clientes en `data/clientes.ts`
 
 📦 Comandos Útiles
 npm run dev        # Desarrollo con HMR
-npm run build      # Build producción (ya probado post-fix)
+npm run build      # Build producción (OK post-cambios)
 npm run start      # Preview producción local
 npm run lint       # ESLint
 

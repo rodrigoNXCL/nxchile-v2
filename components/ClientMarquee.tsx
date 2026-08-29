@@ -15,11 +15,15 @@ const clients = [
 
 export default function ClientMarquee() {
   return (
-    <div className="w-full bg-white border-y border-gray-100 py-12 overflow-hidden">
-      <div className="relative flex overflow-x-hidden">
-        {/* Contenedor animado */}
+    <section className="w-full bg-white border-y border-gray-100">
+      <div className="container-premium py-12 text-center">
+        <p className="text-sm sm:text-base text-[#475569] font-medium max-w-2xl mx-auto leading-relaxed">
+          Empresas que ya ordenaron su operación con NXChile
+          <span className="text-[#94A3B8]"> (incluyendo usuarios de GastosNX y TransNX)</span>.
+        </p>
+      </div>
+      <div className="relative flex overflow-x-hidden pb-12">
         <div className="animate-marquee whitespace-nowrap flex gap-16 items-center">
-          {/* Duplicamos la lista para el loop infinito */}
           {[...clients, ...clients, ...clients].map((client, idx) => (
             <div key={idx} className="relative h-14 w-36 sm:h-16 sm:w-48 flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100">
               <Image
@@ -46,6 +50,6 @@ export default function ClientMarquee() {
           animation-play-state: paused;
         }
       `}</style>
-    </div>
+    </section>
   );
 }

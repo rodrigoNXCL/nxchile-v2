@@ -19,8 +19,8 @@ const steps = [
     number: "02",
     title: "Diseño de solución",
     description:
-      "Definimos la arquitectura técnica y la interfaz de usuario. Validamos el flujo con tu equipo antes de escribir una sola línea de código.",
-    tags: ["Prototipo funcional", "Validación de UX", "Ajustes en tiempo real"],
+      "Definimos la arquitectura y validamos el flujo con tu equipo antes de construir.",
+    tags: ["Prototipo funcional", "Validación con tu equipo", "Ajustes en tiempo real"],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -78,7 +78,7 @@ export default function HowWeWork() {
           
           {/* Subtítulo con peso visual */}
           <p className="text-lg sm:text-xl text-[#334155] leading-relaxed font-medium max-w-3xl mx-auto">
-            Un flujo de trabajo transparente diseñado para garantizar resultados tangibles y un sistema funcional desde el primer día.
+            Un flujo transparente que aplicamos tanto en nuestros productos como en los desarrollos a medida.
           </p>
         </div>
 

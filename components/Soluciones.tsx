@@ -1,56 +1,29 @@
 import Link from "next/link";
+import ProductLogo from "@/components/ProductLogo";
+import { products, ecosystemFlow, type Product } from "@/data/productos";
 
-type Product = {
-  name: string;
-  tag: string;
-  title: string;
-  description: string;
-  benefits: string[];
-  ctaLabel: string;
-  ctaHref: string;
-  secondary: string;
-  accent: "green" | "slate";
-};
-
-const products: Product[] = [
-  {
-    name: "GastosNX",
-    tag: "Producto listo",
-    title: "Deja de perder gastos antes de la renta",
-    description:
-      "Captura y organiza boletas y gastos operacionales desde el celular en segundos. Ideal para pymes y contadores en Chile. Sin papeles. Sin boletas perdidas.",
-    benefits: [
-      "Foto de la boleta en el momento",
-      "Respaldo digital con trazabilidad",
-      "Exportación lista para tu contador",
-    ],
-    ctaLabel: "Conocer GastosNX",
-    ctaHref: "https://gastos.nxchile.com",
-    secondary: "Prueba gratis disponible",
-    accent: "green",
-  },
-  {
-    name: "TransNX",
-    tag: "Producto listo",
-    title: "Control operacional de transporte",
-    description:
-      "Rutas, evidencia fotográfica, stock de materiales y liquidación de kilometraje. Para operaciones de courier, carga y flotas frutícolas.",
-    benefits: [
-      "App Chofer Android nativa (GPS en background)",
-      "Control de stock de materiales por destino",
-      "Liquidación de KM auditada",
-    ],
-    ctaLabel: "Conocer TransNX",
-    ctaHref: "https://trans.nxchile.com",
-    secondary: "Agenda una demo gratuita",
-    accent: "slate",
-  },
-];
+function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
 
 function CheckIcon() {
   return (
     <svg
-      className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--accent)]"
+      className="mt-0.5 h-[18px] w-[18px] flex-shrink-0 text-[var(--accent)]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -64,95 +37,241 @@ function CheckIcon() {
   );
 }
 
-export default function Soluciones() {
+function StatusPill({ product }: { product: Product }) {
+  const isReady = product.status === "listo";
   return (
-    <section id="soluciones" className="py-24 sm:py-32 bg-[var(--bg)] scroll-mt-24">
-      <div className="container-premium">
+    <span
+      className={`tag-pill ${
+        isReady
+          ? "bg-[var(--accent-subtle)] text-[var(--accent)]"
+          : "bg-[var(--surface-muted)] text-[var(--text-secondary)]"
+      }`}
+    >
+      {product.statusLabel ?? "Producto listo"}
+    </span>
+  );
+}
 
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <span className="inline-block mb-6 px-5 py-2 text-xs font-bold tracking-[0.25em] uppercase text-white bg-[var(--accent)] rounded-full shadow-md">
-            Nuestras soluciones
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F172A] mb-6 leading-[1.1]">
-            Nuestras soluciones
-          </h2>
-          <p className="text-lg sm:text-xl text-[#334155] leading-relaxed font-medium max-w-3xl mx-auto">
-            Productos listos para ordenar tu operación desde el día uno.
-            También desarrollamos sistemas a medida cuando lo necesitas.
+function ProductCard({ product }: { product: Product }) {
+  return (
+    <article className="hover-lift group flex flex-col rounded-[var(--radius-lg)] border border-gray-200/70 bg-[var(--surface)] p-7 shadow-[var(--shadow-card)] hover:border-[var(--accent)]/25 hover:shadow-[var(--shadow-lift)] sm:p-8">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <ProductLogo product={product} />
+        <StatusPill product={product} />
+      </div>
+
+      <p className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-[var(--text-tertiary)]">
+        {product.tagline}
+      </p>
+
+      <h3 className="display-card mb-4 text-[var(--text-primary)]">
+        {product.name === "GastosNX"
+          ? "Los gastos que no son factura, respaldados"
+          : product.name === "TransNX"
+          ? "La operación de transporte, en una mesa"
+          : "La historia de calidad de cada lote"}
+      </h3>
+
+      <p className="mb-7 text-[0.95rem] leading-relaxed text-[var(--text-secondary)] text-pretty">
+        {product.description}
+      </p>
+
+      <ul className="mb-8 space-y-3">
+        {product.benefits.map((b) => (
+          <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-[var(--text-primary)]">
+            <CheckIcon />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto border-t border-gray-100 pt-6">
+        <a
+          href={product.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary w-full text-[0.95rem]"
+        >
+          {product.ctaLabel}
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </a>
+        <p className="mt-3 text-center text-xs text-[var(--text-tertiary)]">
+          {product.secondary}
+        </p>
+      </div>
+    </article>
+  );
+}
+
+function FeaturedProduct({ product }: { product: Product }) {
+  const steps = ["Asignar", "Registrar", "Adjuntar", "Revisar", "Aprobar", "Cuadrar", "Cerrar"];
+
+  return (
+    <article className="relative overflow-hidden rounded-[var(--radius-xl)] border border-gray-200/70 bg-[var(--surface)] shadow-[var(--shadow-card)]">
+      <div className="grid lg:grid-cols-[1.15fr_1fr]">
+        {/* Contenido */}
+        <div className="p-8 sm:p-10 lg:p-12">
+          <div className="mb-8 flex flex-wrap items-center gap-4">
+            <ProductLogo product={product} priority />
+            <StatusPill product={product} />
+          </div>
+
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+            {product.tagline}
+          </p>
+
+          <h3 className="display-section mb-6 text-balance">
+            Rendiciones que llegan{" "}
+            <span className="text-[var(--accent)]">cuadradas</span>, todos los meses.
+          </h3>
+
+          <p className="body-lg mb-8 max-w-xl text-[var(--text-secondary)] text-pretty">
+            {product.description}
+          </p>
+
+          <ul className="mb-9 space-y-3.5">
+            {product.benefits.map((b) => (
+              <li key={b} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-[var(--text-primary)]">
+                <CheckIcon />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href={product.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-7 py-3.5"
+            >
+              {product.ctaLabel}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+            <span className="text-sm text-[var(--text-tertiary)]">{product.secondary}</span>
+          </div>
+
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--accent-subtle)] px-3.5 py-1.5 text-xs font-medium text-[var(--accent)]">
+            {product.complement}
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-          {products.map((p) => (
-            <article
-              key={p.name}
-              className="group relative flex flex-col rounded-3xl border border-gray-200 bg-white p-8 sm:p-10 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.16)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(15,23,42,0.22)] hover:border-[var(--accent)]/30"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A]">
-                  {p.name}
-                </span>
-                <span className="inline-block px-3 py-1 text-[0.65rem] font-bold tracking-[0.2em] uppercase text-[var(--accent)] bg-[var(--accent)]/10 rounded-full">
-                  {p.tag}
-                </span>
-              </div>
+        {/* Mock del flujo */}
+        <div className="relative flex flex-col justify-center border-t border-gray-100 bg-[var(--surface-muted)]/60 p-8 sm:p-10 lg:border-l lg:border-t-0">
+          <div className="mb-8">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-tertiary)]">
+              El flujo completo
+            </p>
+            <p className="text-lg font-semibold tracking-tight text-[var(--text-primary)]">
+              Siete pasos. Debe igual a Haber.
+            </p>
+          </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] mb-4 leading-tight">
-                {p.title}
-              </h3>
+          <ol className="space-y-0">
+            {steps.map((step, i) => (
+              <li key={step} className="flex items-center gap-4">
+                <div className="flex flex-col items-center">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--surface)] text-xs font-bold text-[var(--accent)] shadow-sm ring-1 ring-gray-200">
+                    {i + 1}
+                  </span>
+                  {i < steps.length - 1 && (
+                    <span className="h-6 w-px bg-gray-300" aria-hidden="true" />
+                  )}
+                </div>
+                <span className="text-sm font-medium text-[var(--text-primary)]">{step}</span>
+                {i === steps.length - 1 && (
+                  <span className="ml-auto rounded-md bg-[var(--accent)]/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-[var(--accent)]">
+                    Asiento
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </article>
+  );
+}
 
-              <p className="text-[#475569] leading-relaxed mb-6 text-base">
-                {p.description}
-              </p>
+export default function Soluciones() {
+  const featured = products.find((p) => p.featured)!;
+  const rest = products.filter((p) => !p.featured);
 
-              <ul className="space-y-3 mb-8">
-                {p.benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-[#0F172A] text-sm sm:text-base">
-                    <CheckIcon />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+  return (
+    <section id="soluciones" className="scroll-mt-24 bg-[var(--bg)] py-20 sm:py-28 lg:py-32">
+      <div className="container-wide">
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-20">
+          <span className="tag-pill mb-6 bg-[var(--accent-subtle)] text-[var(--accent)]">
+            Nuestras soluciones
+          </span>
+          <h2 className="display-section mb-6 text-balance">
+            Cuatro productos listos. Una misma obsesión: que el orden se note.
+          </h2>
+          <p className="body-lg text-[var(--text-secondary)] text-pretty">
+            Cada producto resuelve una traba operacional concreta. Y cuando lo que necesitas
+            es distinto, lo construimos a medida.
+          </p>
+        </div>
 
-              <div className="mt-auto pt-6 border-t border-gray-100">
-                <a
-                  href={p.ctaHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center w-full sm:w-auto px-6 py-3.5 text-base rounded-full shadow-lg shadow-green-900/10"
-                >
-                  {p.ctaLabel}
-                  <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-                <p className="mt-3 text-sm text-[#475569] font-medium">
-                  {p.secondary}
-                </p>
-              </div>
-            </article>
+        <div className="mb-8 sm:mb-10">
+          <FeaturedProduct product={featured} />
+        </div>
+
+        <div className="mb-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:mb-20">
+          {rest.map((product) => (
+            <ProductCard key={product.slug} product={product} />
           ))}
         </div>
 
-        <div className="text-center mt-16 max-w-2xl mx-auto">
-          <p className="text-lg sm:text-xl text-[#334155] leading-relaxed font-medium mb-6">
+        {/* Ecosistema */}
+        <div className="rounded-[var(--radius-lg)] border border-gray-200/70 bg-[var(--surface)] p-7 shadow-[var(--shadow-card)] sm:p-9">
+          <div className="mb-8 max-w-2xl">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+              Ecosistema NX
+            </p>
+            <h3 className="display-card mb-3 text-balance">
+              RindeNX y GastosNX trabajan juntos
+            </h3>
+            <p className="text-[0.95rem] leading-relaxed text-[var(--text-secondary)] text-pretty">
+              RindeNX controla el fondo y cierra la rendición. Los gastos que no siguen el
+              flujo de una factura pasan a GastosNX para quedar registrados y respaldados.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ecosystemFlow.map((step, i) => (
+              <div key={step.label} className="relative">
+                <div className="rounded-[var(--radius-md)] bg-[var(--surface-muted)] px-5 py-4">
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="text-[0.65rem] font-bold tabular-nums text-[var(--accent)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-sm font-semibold text-[var(--text-primary)]">
+                      {step.label}
+                    </p>
+                  </div>
+                  <p className="text-xs text-[var(--text-tertiary)]">{step.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* A medida */}
+        <div className="mt-14 text-center sm:mt-16">
+          <p className="body-lg mb-7 text-[var(--text-secondary)] text-pretty">
             ¿Tu operación necesita algo más específico?
             <br className="hidden sm:block" />
             También desarrollamos soluciones a medida según tu flujo real.
           </p>
           <Link
             href="/contacto"
-            className="inline-flex items-center justify-center px-7 py-3.5 text-base font-semibold rounded-full border-2 border-[#0F172A] text-[#0F172A] bg-transparent hover:bg-[#0F172A] hover:text-white transition-colors duration-250"
+            className="btn-secondary px-7 py-3.5 text-[0.95rem] hover:text-white hover:border-[var(--text-primary)] hover:bg-[var(--text-primary)]"
           >
             Hablar de una solución a medida
-            <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
-
       </div>
     </section>
   );

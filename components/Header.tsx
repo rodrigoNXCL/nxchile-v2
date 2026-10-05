@@ -3,11 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { products } from "@/data/productos";
 
 type NavItem = {
   label: string;
   href: string;
   external?: boolean;
+  hint?: string;
 };
 
 type NavGroup = {
@@ -21,9 +23,13 @@ const navItems: NavGroup[] = [
   {
     label: "Soluciones",
     children: [
-      { label: "GastosNX", href: "https://gastos.nxchile.com", external: true },
-      { label: "TransNX", href: "https://trans.nxchile.com", external: true },
-      { label: "Soluciones a medida", href: "/contacto" },
+      ...products.map<NavItem>((p) => ({
+        label: p.name,
+        href: p.href,
+        external: true,
+        hint: p.tagline,
+      })),
+      { label: "Soluciones a medida", href: "/contacto", hint: "Desarrollo a medida" },
     ],
   },
   { label: "Cómo trabajamos", href: "/#como-trabajamos" },
@@ -31,12 +37,26 @@ const navItems: NavGroup[] = [
   { label: "Contacto", href: "/contacto" },
 ];
 
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="14" height="14" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+      className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -46,12 +66,6 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setIsMenuOpen(false);
-    setOpenDropdown(null);
-    setMobileExpanded(null);
-  }, [pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isMenuOpen]);
@@ -59,139 +73,97 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpenDropdown(null);
+        setOpenDropdown(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const renderNavLink = (item: NavGroup, isMobile = false) => {
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
+
+  const openMenu = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDropdown(true);
+  };
+
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenDropdown(false), 140);
+  };
+
+  const closeAll = () => {
+    setIsMenuOpen(false);
+    setOpenDropdown(false);
+    setMobileExpanded(false);
+  };
+
+  const renderMobileItem = (item: NavGroup) => {
     if (item.children) {
-      if (isMobile) {
-        const isExpanded = mobileExpanded === item.label;
-        return (
-          <div key={item.label} className="w-full text-center">
-            <button
-              onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
-              className="text-xl font-medium text-[var(--text-primary)] inline-flex items-center gap-2"
-              aria-expanded={isExpanded}
-            >
-              {item.label}
-              <svg
-                width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                className={`transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
-                aria-hidden="true"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                isExpanded ? "max-h-96 mt-4" : "max-h-0"
-              }`}
-            >
-              <div className="flex flex-col gap-4">
-                {item.children.map((child) =>
-                  child.external ? (
+      const children = item.children;
+      return (
+        <div key={item.label} className="w-full">
+          <button
+            onClick={() => setMobileExpanded(!mobileExpanded)}
+            className="inline-flex items-center gap-1.5 text-lg font-medium tracking-tight text-[var(--text-primary)]"
+            aria-expanded={mobileExpanded}
+          >
+            {item.label}
+            <Chevron open={mobileExpanded} />
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              mobileExpanded ? "mt-4 max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <ul className="flex flex-col gap-0.5 rounded-[var(--radius-md)] bg-[var(--surface-muted)]/70 p-2">
+              {children.map((child, idx) => (
+                <li key={child.label} className={idx === children.length - 1 ? "mt-1 border-t border-gray-200 pt-1" : ""}>
+                  {child.external ? (
                     <a
-                      key={child.label}
                       href={child.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-base text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+                      onClick={closeAll}
+                      className="flex flex-col gap-0.5 rounded-xl px-3.5 py-2.5 hover:bg-white/70"
                     >
-                      {child.label}
+                      <span className="text-[0.95rem] font-medium text-[var(--text-primary)]">
+                        {child.label}
+                      </span>
+                      {child.hint && (
+                        <span className="text-xs text-[var(--text-tertiary)]">{child.hint}</span>
+                      )}
                     </a>
                   ) : (
                     <Link
-                      key={child.label}
                       href={child.href}
-                      className="text-base text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+                      onClick={closeAll}
+                      className="flex flex-col gap-0.5 rounded-xl px-3.5 py-2.5 hover:bg-white/70"
                     >
-                      {child.label}
+                      <span className="text-[0.95rem] font-medium text-[var(--text-primary)]">
+                        {child.label}
+                      </span>
+                      {child.hint && (
+                        <span className="text-xs text-[var(--text-tertiary)]">{child.hint}</span>
+                      )}
                     </Link>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      }
-
-      const isOpen = openDropdown === item.label;
-      return (
-        <div key={item.label} className="relative" ref={isOpen ? dropdownRef : undefined}>
-          <button
-            onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-            onMouseEnter={() => setOpenDropdown(item.label)}
-            className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 inline-flex items-center gap-1"
-            aria-expanded={isOpen}
-            aria-haspopup="true"
-          >
-            {item.label}
-            <svg
-              width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-              className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-              aria-hidden="true"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          <div
-            onMouseLeave={() => setOpenDropdown(null)}
-            className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[220px] rounded-2xl border border-gray-200 bg-white shadow-[0_20px_50px_-15px_rgba(15,23,42,0.15)] p-2 transition-all duration-200 ${
-              isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
-            }`}
-          >
-            {item.children.map((child) =>
-              child.external ? (
-                <a
-                  key={child.label}
-                  href={child.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] rounded-xl hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors"
-                >
-                  {child.label}
-                </a>
-              ) : (
-                <Link
-                  key={child.label}
-                  href={child.href}
-                  className="block px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] rounded-xl hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors"
-                >
-                  {child.label}
-                </Link>
-              )
-            )}
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       );
     }
 
     const isActive = item.href === pathname;
-    if (isMobile) {
-      return (
-        <Link
-          key={item.label}
-          href={item.href!}
-          className={`text-xl font-medium transition-colors ${
-            isActive ? "text-[var(--accent)]" : "text-[var(--text-primary)] hover:text-[var(--accent)]"
-          }`}
-        >
-          {item.label}
-        </Link>
-      );
-    }
     return (
       <Link
         key={item.label}
         href={item.href!}
-        className={`text-sm font-medium transition-colors duration-200 ${
-          isActive ? "text-[var(--accent)]" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+        onClick={closeAll}
+        className={`text-lg font-medium tracking-tight transition-colors ${
+          isActive ? "text-[var(--accent)]" : "text-[var(--text-primary)] hover:text-[var(--accent)]"
         }`}
       >
         {item.label}
@@ -201,57 +173,183 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
+          ? "border-b border-gray-200/60 bg-white/80 backdrop-blur-xl shadow-[0_1px_20px_rgba(15,23,42,0.05)]"
           : "bg-transparent"
       }`}
     >
-      <div className="container-premium flex items-center justify-between h-16 md:h-20">
-        <Link href="/" className="flex items-center gap-2 group">
+      <div className="container-wide flex h-16 items-center justify-between md:h-20">
+        <Link href="/" className="group -ml-1 flex items-center p-1">
           <img
             src="/images/logo.svg"
-            alt="NXChile Logo"
-            className="h-11 md:h-12 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+            alt="NXChile"
+            className="h-9 w-auto transition-transform duration-300 group-hover:scale-[1.03] md:h-11"
           />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => renderNavLink(item, false))}
-          <Link href="/contacto" className="btn-primary text-sm px-5 py-2.5">
+        {/* Desktop */}
+        <nav className="hidden items-center gap-7 md:flex lg:gap-9">
+          {navItems.map((item) => {
+            if (item.children) {
+              const children = item.children;
+              return (
+                <div
+                  key={item.label}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={openMenu}
+                  onMouseLeave={scheduleClose}
+                >
+                  <button
+                    onClick={() => setOpenDropdown(!openDropdown)}
+                    className={`inline-flex items-center gap-1.5 py-2 text-sm font-medium tracking-tight transition-colors duration-200 ${
+                      openDropdown
+                        ? "text-[var(--text-primary)]"
+                        : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    }`}
+                    aria-expanded={openDropdown}
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <Chevron open={openDropdown} />
+                  </button>
+
+                  <div
+                    className={`absolute left-1/2 top-full w-[290px] -translate-x-1/2 pt-3 transition-all duration-200 ease-out ${
+                      openDropdown
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-1 opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden rounded-[var(--radius-lg)] border border-gray-200/70 bg-[var(--surface)] p-2 shadow-[var(--shadow-lift)]">
+                      <p className="px-3.5 pb-2 pt-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--text-tertiary)]">
+                        Productos
+                      </p>
+                      {children.map((child, idx) => (
+                        <div key={child.label}>
+                          {idx === children.length - 1 && (
+                            <div className="mx-3.5 my-2 border-t border-gray-100" />
+                          )}
+                          {child.external ? (
+                            <a
+                              href={child.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={closeAll}
+                              className="group/link flex items-center justify-between gap-3 rounded-[14px] px-3.5 py-2.5 transition-colors duration-200 hover:bg-[var(--surface-muted)]"
+                            >
+                              <span className="flex flex-col">
+                                <span className="text-sm font-medium text-[var(--text-primary)] transition-colors group-hover/link:text-[var(--accent)]">
+                                  {child.label}
+                                </span>
+                                {child.hint && (
+                                  <span className="text-xs text-[var(--text-tertiary)]">
+                                    {child.hint}
+                                  </span>
+                                )}
+                              </span>
+                              <svg
+                                width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="shrink-0 text-[var(--text-tertiary)] transition-all duration-200 group-hover/link:translate-x-0.5 group-hover/link:text-[var(--accent)]"
+                                aria-hidden="true"
+                              >
+                                <polyline points="9 18 15 12 9 6" />
+                              </svg>
+                            </a>
+                          ) : (
+                            <Link
+                              href={child.href}
+                              onClick={closeAll}
+                              className="group/link flex items-center justify-between gap-3 rounded-[14px] px-3.5 py-2.5 transition-colors duration-200 hover:bg-[var(--surface-muted)]"
+                            >
+                              <span className="flex flex-col">
+                                <span className="text-sm font-medium text-[var(--text-primary)] transition-colors group-hover/link:text-[var(--accent)]">
+                                  {child.label}
+                                </span>
+                                {child.hint && (
+                                  <span className="text-xs text-[var(--text-tertiary)]">
+                                    {child.hint}
+                                  </span>
+                                )}
+                              </span>
+                              <svg
+                                width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                className="shrink-0 text-[var(--text-tertiary)] transition-all duration-200 group-hover/link:translate-x-0.5 group-hover/link:text-[var(--accent)]"
+                                aria-hidden="true"
+                              >
+                                <polyline points="9 18 15 12 9 6" />
+                              </svg>
+                            </Link>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            const isActive = item.href === pathname;
+            return (
+              <Link
+                key={item.label}
+                href={item.href!}
+                onClick={closeAll}
+                className={`py-2 text-sm font-medium tracking-tight transition-colors duration-200 ${
+                  isActive
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+
+          <Link
+            href="/contacto"
+            onClick={closeAll}
+            className="btn-primary ml-1 px-5 py-2.5 text-sm"
+          >
             Evaluación gratuita
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="-mr-2 rounded-xl p-2.5 text-[var(--text-primary)] transition-colors hover:bg-black/5 md:hidden"
           aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="17" x2="21" y2="17" />
             </svg>
           )}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-[4rem] bg-white/95 backdrop-blur-lg transition-transform duration-300 ease-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 top-16 z-40 bg-[var(--bg)]/95 backdrop-blur-xl transition-all duration-300 ease-out md:hidden ${
+          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
-        <nav className="flex flex-col items-center justify-center h-full gap-6 px-6 overflow-y-auto">
-          {navItems.map((item) => renderNavLink(item, true))}
-          <Link href="/contacto" className="btn-primary text-base px-6 py-3 mt-4">
+        <nav className="container-wide flex h-full flex-col items-center justify-center gap-6 overflow-y-auto pb-24 pt-8">
+          {navItems.map((item) => renderMobileItem(item))}
+          <Link
+            href="/contacto"
+            onClick={closeAll}
+            className="btn-primary mt-4 w-full max-w-xs px-6 py-3.5"
+          >
             Evaluación gratuita
           </Link>
         </nav>

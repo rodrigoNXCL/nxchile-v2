@@ -6,24 +6,45 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import InstagramFloat from "@/components/InstagramFloat";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const title = "NXChile | RindeNX, GastosNX, TransNX y QualityNX";
+const description =
+  "Tecnología que ordena operaciones en Chile. RindeNX para fondos por rendir, GastosNX para gastos y boletas, TransNX para transporte y QualityNX para trazabilidad de calidad. Productos listos y desarrollo a medida.";
 
 export const metadata: Metadata = {
-  title: "NXChile | Soluciones Tecnológicas Operativas",
-  description: "Digitalización, automatización y plataformas de gestión para empresas que buscan orden, trazabilidad y eficiencia real.",
-  keywords: ["tecnología operacional", "digitalización", "automatización", "gestión empresarial", "NXChile"],
+  metadataBase: new URL("https://www.nxchile.com"),
+  title,
+  description,
+  keywords: [
+    "software de gestión Chile",
+    "fondos por rendir",
+    "control de gastos",
+    "control operacional transporte",
+    "trazabilidad de calidad",
+    "digitalización operacional",
+    "NXChile",
+    "RindeNX",
+    "GastosNX",
+    "TransNX",
+    "QualityNX",
+  ],
   openGraph: {
-    title: "NXChile | Soluciones Tecnológicas Operativas",
-    description: "Transformamos problemas operativos en sistemas claros, trazables y eficientes.",
-    url: "https://nxchile.cl",
+    title,
+    description,
+    url: "https://www.nxchile.com",
     siteName: "NXChile",
     locale: "es_CL",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NXChile | Soluciones Tecnológicas Operativas",
-    description: "Transformamos problemas operativos en sistemas claros, trazables y eficientes.",
+    title,
+    description,
   },
 };
 
@@ -33,10 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="antialiased bg-[var(--bg)] text-[var(--text-primary)] min-h-screen flex flex-col">
+    <html lang="es" className={inter.variable} data-scroll-behavior="smooth">
+      <body className="flex min-h-screen flex-col bg-[var(--bg)] text-[var(--text-primary)] antialiased">
         <Header />
-        <main className="flex-1 pt-20 md:pt-24">{children}</main>
+        <main className="flex-1 pt-16 md:pt-20">{children}</main>
         <Footer />
         <WhatsAppFloat />
         <InstagramFloat />

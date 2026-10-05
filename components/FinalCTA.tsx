@@ -1,51 +1,48 @@
 import Link from "next/link";
+import { products } from "@/data/productos";
 
 export default function FinalCTA() {
   return (
-    <section className="py-24 sm:py-32 bg-[var(--bg)]">
-      <div className="container-premium text-center max-w-4xl mx-auto">
-        <span className="inline-block mb-6 text-xs font-bold tracking-widest uppercase text-[var(--accent)]">
-          Próximo paso
-        </span>
-
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0F172A] mb-6 leading-tight">
-          Construyamos una operación más clara.
-        </h2>
-
-        <p className="text-lg sm:text-xl text-[#475569] max-w-2xl mx-auto mb-10 leading-relaxed">
-          Ya sea que necesites GastosNX, TransNX o una solución desarrollada a tu medida, partimos entendiendo tu operación real.
-          <br className="hidden sm:block" />
-          Sin contratos largos. Sin promesas vacías. Solo tecnología que ordena.
-        </p>
-
-        <div className="flex flex-col items-center gap-6">
-          <Link
-            href="/contacto"
-            className="btn-primary inline-block px-12 py-5 text-lg rounded-full shadow-xl shadow-green-900/10"
-          >
+    <section className="bg-[var(--bg)] py-20 sm:py-28 lg:py-32">
+      <div className="container-wide">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="tag-pill mb-6 bg-[var(--accent-subtle)] text-[var(--accent)]">
+            Próximo paso
+          </span>
+          <h2 className="display-section mb-6 text-balance">
+            Construyamos una operación más clara.
+          </h2>
+          <p className="body-lg mb-11 text-[var(--text-secondary)] text-pretty">
+            Ya sea que necesites RindeNX, GastosNX, TransNX o QualityNX —o una solución
+            desarrollada a tu medida— partimos entendiendo tu operación real.
+            <br className="hidden sm:block" />
+            Sin contratos largos. Sin promesas vacías. Solo tecnología que ordena.
+          </p>
+          <Link href="/contacto" className="btn-primary px-9 py-4 text-base">
             Solicitar evaluación gratuita
           </Link>
+        </div>
 
-          <p className="text-base sm:text-lg text-[#475569] font-medium">
-            También puedes ir directo a nuestros productos:{" "}
-            <a
-              href="https://gastos.nxchile.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold underline underline-offset-4 hover:text-[#0F172A] transition-colors"
-            >
-              GastosNX
-            </a>
-            <span className="mx-2 text-[#94A3B8]">·</span>
-            <a
-              href="https://trans.nxchile.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] font-semibold underline underline-offset-4 hover:text-[#0F172A] transition-colors"
-            >
-              TransNX
-            </a>
+        <div className="mx-auto mt-14 max-w-5xl">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-tertiary)]">
+            También puedes ir directo a nuestros productos
           </p>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {products.map((p) => (
+              <a
+                key={p.slug}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-1.5 rounded-[var(--radius-md)] border border-gray-200/70 bg-[var(--surface)] px-4 py-5 text-center transition-all duration-250 hover:-translate-y-0.5 hover:border-[var(--accent)]/25 hover:shadow-[var(--shadow-card)]"
+              >
+                <span className="text-[0.95rem] font-semibold tracking-tight text-[var(--text-primary)] transition-colors group-hover:text-[var(--accent)]">
+                  {p.name}
+                </span>
+                <span className="text-xs text-[var(--text-tertiary)]">{p.tagline}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

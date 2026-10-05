@@ -9,11 +9,6 @@ const steps = [
     description:
       "Analizamos tu negocio actual para detectar cuellos de botella. No buscamos reinventar, sino ordenar lo que ya tienes.",
     tags: ["Reunión estratégica", "Mapeo de flujos", "1-2 semanas"],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
   },
   {
     number: "02",
@@ -21,39 +16,20 @@ const steps = [
     description:
       "Definimos la arquitectura y validamos el flujo con tu equipo antes de construir.",
     tags: ["Prototipo funcional", "Validación con tu equipo", "Ajustes en tiempo real"],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <line x1="3" y1="9" x2="21" y2="9" />
-        <line x1="9" y1="21" x2="9" y2="9" />
-      </svg>
-    ),
   },
   {
     number: "03",
     title: "Desarrollo iterativo",
     description:
-      "Construimos la solución en ciclos cortos. Recibes avances funcionales para probar en tu operación real, no en teoría.",
+      "Construimos en ciclos cortos. Recibes avances funcionales para probar en tu operación real, no en teoría.",
     tags: ["Sprints semanales", "Entregas parciales", "Feedback continuo"],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
   },
   {
     number: "04",
     title: "Entrega y soporte",
     description:
-      "Puesta en marcha con capacitación incluida. No te dejamos solo: documentamos todo y aseguramos que tu equipo domine la herramienta.",
+      "Puesta en marcha con capacitación. Documentamos todo y acompañamos a tu equipo.",
     tags: ["Capacitación", "Documentación", "Soporte técnico"],
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-        <polyline points="22 4 12 14.01 9 11.01" />
-      </svg>
-    ),
   },
 ];
 
@@ -61,84 +37,68 @@ export default function HowWeWork() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section className="py-24 sm:py-32 bg-white">
-      <div className="container-premium">
-        
-        {/* HEADER DE SECCIÓN REDISEÑADO (ALTO IMPACTO) */}
-        <div className="text-center mb-24 max-w-4xl mx-auto">
-          {/* Badge Sólido para resaltar "Metodología" */}
-          <span className="inline-block mb-6 px-5 py-2 text-xs font-bold tracking-[0.25em] uppercase text-white bg-[var(--accent)] rounded-full shadow-md">
+    <section className="bg-[var(--surface)] py-20 sm:py-28 lg:py-32">
+      <div className="container-wide">
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-20">
+          <span className="tag-pill mb-6 bg-[var(--accent-subtle)] text-[var(--accent)]">
             Metodología
           </span>
-          
-          {/* Título Gigante y Oscuro */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F172A] mb-6 leading-[1.1]">
+          <h2 className="display-section mb-6 text-balance">
             De la idea a la operación real.
           </h2>
-          
-          {/* Subtítulo con peso visual */}
-          <p className="text-lg sm:text-xl text-[#334155] leading-relaxed font-medium max-w-3xl mx-auto">
-            Un flujo transparente que aplicamos tanto en nuestros productos como en los desarrollos a medida.
+          <p className="body-lg text-[var(--text-secondary)] text-pretty">
+            Un flujo transparente que aplicamos tanto en nuestros productos
+            como en los desarrollos a medida.
           </p>
         </div>
 
-        {/* Timeline Vertical */}
-        <div className="max-w-4xl mx-auto">
+        <ol className="mx-auto max-w-3xl">
           {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`relative flex gap-6 sm:gap-10 mb-12 last:mb-0 group`}
-            >
-              {/* Línea conectora */}
+            <li key={step.number} className="group relative flex gap-6 pb-10 last:pb-0 sm:gap-8">
               {index !== steps.length - 1 && (
-                <div className="absolute left-[1.7rem] sm:left-[2.1rem] top-14 w-px h-full bg-gray-100" />
+                <span
+                  className="absolute left-[23px] top-14 h-[calc(100%-3.5rem)] w-px bg-gray-200 sm:left-[27px]"
+                  aria-hidden="true"
+                />
               )}
 
-              {/* Icono/Número */}
-              <div className="flex-shrink-0 relative z-10 pt-1">
-                <div
-                  className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border ${
-                    activeStep === index
-                      ? "bg-[var(--accent)] text-white border-[var(--accent)] shadow-lg scale-110"
-                      : "bg-white text-[var(--accent)] border-gray-200"
-                  }`}
-                >
-                  {activeStep === index ? step.icon : <span className="text-lg font-bold">{step.number}</span>}
-                </div>
-              </div>
+              <span
+                className={`relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border text-base font-bold tabular-nums transition-all duration-300 sm:h-14 sm:w-14 ${
+                  activeStep === index
+                    ? "border-[var(--accent)] bg-[var(--accent)] text-white shadow-lg"
+                    : "border-gray-200 bg-[var(--surface)] text-[var(--text-tertiary)] group-hover:border-[var(--accent)]/40 group-hover:text-[var(--accent)]"
+                }`}
+              >
+                {step.number}
+              </span>
 
-              {/* Contenido */}
-              <div className="flex-grow">
-                <div
-                  className={`rounded-2xl p-6 sm:p-8 transition-all duration-300 border ${
-                    activeStep === index
-                      ? "bg-[#FAFAFA] border-[var(--accent)]/30 shadow-md"
-                      : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-sm"
-                  }`}
-                  onMouseEnter={() => setActiveStep(index)}
-                  onMouseLeave={() => setActiveStep(null)}
-                >
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-[#475569] leading-relaxed mb-5 text-base sm:text-lg">
-                    {step.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {step.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs sm:text-sm px-3 py-1.5 rounded-full bg-gray-50 text-gray-600 font-medium border border-gray-100"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div
+                onMouseEnter={() => setActiveStep(index)}
+                onMouseLeave={() => setActiveStep(null)}
+                className={`flex-1 rounded-[var(--radius-lg)] border px-6 py-6 transition-all duration-300 sm:px-8 sm:py-7 ${
+                  activeStep === index
+                    ? "border-[var(--accent)]/25 bg-[var(--bg)]"
+                    : "border-gray-200/70 bg-[var(--surface)]"
+                }`}
+              >
+                <h3 className="display-card mb-3">{step.title}</h3>
+                <p className="mb-5 text-[0.95rem] leading-relaxed text-[var(--text-secondary)] text-pretty">
+                  {step.description}
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {step.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-gray-200/80 bg-[var(--surface-muted)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

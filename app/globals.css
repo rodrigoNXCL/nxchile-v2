@@ -3,16 +3,33 @@
 @tailwind utilities;
 
 :root {
-  /* Nuevas variables optimizadas para contraste */
+  /* Superficies */
   --bg: #FAFAFA;
   --surface: #FFFFFF;
-  --text-primary: #0F172A;       /* Negro azulado para títulos (Apple style) */
-  --text-secondary: #475569;     /* Gris oscuro para lectura cómoda (Fix contraste) */
+  --surface-muted: #F5F5F7;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+
+  /* Tinta única de acento */
   --accent: #1B5E20;
   --accent-hover: #2E7D32;
+  --accent-subtle: #F1F8F2;
+
+  /* Geometría */
   --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Sombras en capas (Apple) */
   --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.06);
-  --transition-base: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-card: 0 2px 8px rgba(15, 23, 42, 0.04), 0 12px 40px rgba(15, 23, 42, 0.07);
+  --shadow-lift: 0 4px 12px rgba(15, 23, 42, 0.05), 0 24px 60px rgba(15, 23, 42, 0.12);
+
+  /* Movimiento */
+  --ease-apple: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: all 250ms var(--ease-apple);
 
   /* Compatibilidad con componentes existentes */
   --color-background: #FAFAFA;
@@ -22,35 +39,109 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-[var(--bg)] text-[var(--text-primary)] antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
+
   h1, h2, h3, h4 {
-    @apply tracking-tight text-[var(--text-primary)] font-semibold;
+    @apply tracking-tight text-[var(--text-primary)];
+    letter-spacing: -0.028em;
   }
+
   a {
     @apply transition-[var(--transition-base)];
   }
-  html {
-    @apply scroll-smooth;
+
+  img {
+    -webkit-user-drag: none;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-[var(--accent)] ring-offset-2 ring-offset-[var(--bg)];
   }
 }
 
 @layer components {
-  .container-premium, .container-custom {
+  .container-premium,
+  .container-custom {
     @apply max-w-5xl mx-auto px-6 md:px-12;
   }
-  
+
+  /* Contenedor ancho para grids de producto */
+  .container-wide {
+    @apply max-w-6xl mx-auto px-6 md:px-12;
+  }
+
+  /* Escala tipográfica fluida */
+  .display-hero {
+    font-size: clamp(2.5rem, 1.5rem + 4.2vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  .display-section {
+    font-size: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .display-card {
+    font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.024em;
+    font-weight: 700;
+  }
+
+  .body-lg {
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.25rem);
+    line-height: 1.6;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-[var(--accent)] text-white rounded-[var(--radius-md)] font-medium shadow-[var(--shadow-soft)] hover:bg-[var(--accent-hover)] transition-[var(--transition-base)] focus:outline-none focus:ring-2 focus:ring-[#1B5E20] focus:ring-offset-2 focus:ring-offset-[var(--bg)];
+    @apply inline-flex items-center justify-center px-6 py-3 bg-[var(--accent)] text-white rounded-full font-medium shadow-[var(--shadow-soft)] hover:bg-[var(--accent-hover)] transition-[var(--transition-base)] active:scale-[0.98];
   }
-  
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-[var(--text-primary)] rounded-[var(--radius-md)] font-medium hover:bg-gray-50 transition-[var(--transition-base)] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-[var(--bg)];
+    @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-[var(--text-primary)] rounded-full font-medium hover:border-gray-400 hover:bg-[var(--surface-muted)] transition-[var(--transition-base)] active:scale-[0.98];
   }
-  
+
+  .btn-quiet {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-[var(--surface-muted)] text-[var(--text-primary)] rounded-full font-medium hover:bg-gray-200 transition-[var(--transition-base)] active:scale-[0.98];
+  }
+
   .card-premium {
-    @apply bg-[var(--surface)] rounded-[var(--radius-md)] p-6 shadow-[var(--shadow-soft)] border border-gray-100 hover:shadow-lg transition-[var(--transition-base)];
+    @apply bg-[var(--surface)] rounded-[var(--radius-lg)] p-6 shadow-[var(--shadow-card)] border border-gray-100/80;
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Elevación suave para cards de producto */
+  .hover-lift {
+    transition: transform 350ms var(--ease-out), box-shadow 350ms var(--ease-out), border-color 250ms var(--ease-apple);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
   }
 }

@@ -4,11 +4,9 @@ const segments = [
     description:
       "Operaciones que están escalando y necesitan ordenar procesos antes de que el caos las frene.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 21h18" />
-        <path d="M5 21V7l7-4 7 4v14" />
-        <path d="M9 9h.01" /><path d="M9 13h.01" /><path d="M9 17h.01" />
-        <path d="M15 9h.01" /><path d="M15 13h.01" /><path d="M15 17h.01" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9.5 10h.01M14.5 10h.01M9.5 14h.01M14.5 14h.01" />
       </svg>
     ),
   },
@@ -17,11 +15,10 @@ const segments = [
     description:
       "Rutas, evidencia, stock y rendiciones. Control real sobre lo que pasa en la calle y en la ruta.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="1" y="3" width="15" height="13" />
-        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-        <circle cx="5.5" cy="18.5" r="2.5" />
-        <circle cx="18.5" cy="18.5" r="2.5" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="1" y="4" width="14" height="12" rx="1" />
+        <polygon points="15 9 19 9 22 12 22 16 15 16 15 9" />
+        <circle cx="6" cy="18.5" r="2" /><circle cx="18" cy="18.5" r="2" />
       </svg>
     ),
   },
@@ -30,10 +27,8 @@ const segments = [
     description:
       "Operaciones de temporada con alta rotación. Trazabilidad, evidencia y liquidación de kilómetros auditada.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2a10 10 0 1 0 10 10" />
-        <path d="M12 2v10l7 4" />
-        <path d="M12 2c-3 3-3 7 0 10s7 3 10 0" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" /><path d="M12 3v9l6 3" />
       </svg>
     ),
   },
@@ -42,12 +37,9 @@ const segments = [
     description:
       "Clientes que llegan con sus boletas y gastos desordenados. Les damos respaldo digital listo para cerrar el mes.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <line x1="3" y1="9" x2="21" y2="9" />
-        <line x1="9" y1="3" x2="9" y2="21" />
-        <line x1="15" y1="13" x2="17" y2="13" />
-        <line x1="15" y1="17" x2="17" y2="17" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="2.5" width="16" height="19" rx="2" />
+        <path d="M8 7h8M8 11h8M8 15h3" />
       </svg>
     ),
   },
@@ -56,8 +48,8 @@ const segments = [
     description:
       "Cualquier operación harta del papel, el WhatsApp y las planillas. Empezamos por entender el flujo real.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="21 12 17 12 14.5 20 9.5 4 7 12 3 12" />
       </svg>
     ),
   },
@@ -65,40 +57,49 @@ const segments = [
 
 export default function ParaQuien() {
   return (
-    <section className="py-24 sm:py-32 bg-white">
-      <div className="container-premium">
-
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <span className="inline-block mb-6 px-5 py-2 text-xs font-bold tracking-[0.25em] uppercase text-white bg-[var(--accent)] rounded-full shadow-md">
+    <section className="bg-[var(--bg)] py-20 sm:py-28 lg:py-32">
+      <div className="container-wide">
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-20">
+          <span className="tag-pill mb-6 bg-[var(--accent-subtle)] text-[var(--accent)]">
             Para quién trabajamos
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F172A] mb-6 leading-[1.1]">
+          <h2 className="display-section mb-6 text-balance">
             Liberamos trabas operacionales en distintos tipos de empresas
           </h2>
-          <p className="text-lg sm:text-xl text-[#334155] leading-relaxed font-medium max-w-3xl mx-auto">
-            Atendemos desde pymes hasta operaciones más complejas. El foco siempre es el mismo: eliminar el caos manual y darte control real.
+          <p className="body-lg text-[var(--text-secondary)] text-pretty">
+            Atendemos desde pymes hasta operaciones más complejas. El foco siempre es el
+            mismo: eliminar el caos manual y darte control real.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <ul className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">
           {segments.map((s) => (
-            <article
+            <li
               key={s.title}
-              className="group rounded-2xl border border-gray-200 bg-[#FAFAFA] p-7 sm:p-8 transition-all duration-300 hover:border-[var(--accent)]/30 hover:bg-white hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.15)]"
+              className="group rounded-[var(--radius-lg)] border border-gray-200/70 bg-[var(--surface)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)]/25 hover:shadow-[var(--shadow-card)] sm:p-7"
             >
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[var(--accent)] group-hover:text-white">
+              <span className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-subtle)] text-[var(--accent)] transition-colors duration-300 group-hover:bg-[var(--accent)] group-hover:text-white">
                 {s.icon}
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-3 leading-snug">
+              </span>
+              <h3 className="mb-2.5 text-lg font-semibold leading-snug tracking-tight">
                 {s.title}
               </h3>
-              <p className="text-[#475569] leading-relaxed text-sm sm:text-base">
+              <p className="text-[0.9rem] leading-relaxed text-[var(--text-secondary)] text-pretty">
                 {s.description}
               </p>
-            </article>
+            </li>
           ))}
-        </div>
 
+          <li className="flex items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-gray-300 p-6 text-center sm:p-7">
+            <p className="text-[0.9rem] leading-relaxed text-[var(--text-tertiary)]">
+              Tu rubro no aparece aquí.
+              <br />
+              <span className="text-[var(--text-secondary)]">
+                Cuéntanos y lo evaluamos contigo.
+              </span>
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
   );
